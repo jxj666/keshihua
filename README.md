@@ -1,10 +1,10 @@
 <!--
- * @LastEditTime: 2021-04-19 01:51:04
+ * @LastEditTime: 2021-04-19 01:52:24
  * @LastEditors: jinxiaojian
 -->
 # 靳小健的可视化学习
 
-![main](/keshihua/1.png)
+![main](/keshihua/1.jpg)
 
 ### 04 | GPU与渲染管线：如何用WebGL绘制最简单的几何图形？
 [webGl](/keshihua/4%20GPU与渲染管线/1.html)
