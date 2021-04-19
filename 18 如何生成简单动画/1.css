@@ -1,0 +1,19 @@
+
+.bird {
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  width:86px;
+  height:60px;
+  zoom: 0.5;
+  background-repeat: no-repeat;
+  background-image: url(./download.png);
+  background-position: -178px -2px;
+  animation: flappy .5s step-end infinite;
+}
+
+@keyframes flappy {
+  0% {background-position: -178px -2px;}
+  33% {background-position: -90px -2px;}
+  66% {background-position: -2px -2px;}
+}

@@ -1,0 +1,48 @@
+<!--
+ * @LastEditTime: 2021-04-19 23:51:38
+ * @LastEditors: jinxiaojian
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .block {
+      width: 100px;
+      height: 100px;
+      top: 100px;
+      left: 100px;
+      transform-origin: 50% 50%;
+      position: absolute;
+      background: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    时序动画的实现可以总结为三步：首先定义初始时间和周期，然后在 update 中计算当前经过时间和进度 p，最后通过 p 来更新动画元素的属性。虽然时序动画实现起来比增量动画写法更复杂，但我们可以更直观、精确地控制旋转动画的周期（速度）、起始角度等参数。
+  </div>
+  <div class="block"></div>
+  <script>
+
+    const block = document.querySelector('.block');
+    const startAngle = 0;
+    const T = 2000;
+    let startTime = null;
+    function update() {
+      startTime = startTime == null ? Date.now() : startTime;
+      const p = (Date.now() - startTime) / T;
+      const angle = startAngle + p * 360;
+      block.style.transform = `rotate(${angle}deg)`;
+      requestAnimationFrame(update);
+    }
+    update();
+  </script>
+</body>
+
+</html>
