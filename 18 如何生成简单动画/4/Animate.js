@@ -1,9 +1,9 @@
 /*
- * @LastEditTime: 2021-04-20 00:21:32
+ * @LastEditTime: 2021-04-20 00:28:41
  * @LastEditors: jinxiaojian
  */
 
-import {Timing} from './timing.js';
+import {Timing} from './Timing.js';
 
 export class Animator {
   constructor({duration, iterations}) {
