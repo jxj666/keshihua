@@ -1,0 +1,23 @@
+{
+  "name": "keshihua",
+  "version": "1.0.0",
+  "description": "<!--\r  * @LastEditTime: 2021-04-19 23:57:57\r  * @LastEditors: jinxiaojian\r -->\r # 靳小健的可视化学习",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jxj322991/keshihua.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jxj322991/keshihua/issues"
+  },
+  "homepage": "https://github.com/jxj322991/keshihua#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
