@@ -1,0 +1,112 @@
+<!--
+ * @LastEditTime: 2021-04-21 00:53:03
+ * @LastEditors: jinxiaojian
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      color: gray
+    }
+
+    .block {
+      width: 100px;
+      height: 100px;
+      margin: 20px;
+      flex-shrink: 0;
+      transform-origin: 50% 50%;
+      color: #fff;
+      position: relative;
+    }
+
+    .block:nth-child(1) {
+      background: red;
+    }
+
+    .block:nth-child(2) {
+      background: blue;
+    }
+
+    .block:nth-child(3) {
+      background: green;
+    }
+
+    .block1 {
+      width: 100px;
+      height: 100px;
+      background: yellow;
+      margin: 20px;
+      transform-origin: 50% 50%;
+      position: relative;
+
+    }
+
+    .animate {
+      animation: mymove 3s cubic-bezier(0.5, -1.5, 0.5, 2.5) infinite;
+    }
+
+    @keyframes mymove {
+      from {
+        left: 100px
+      }
+
+      to {
+        left: 400px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3>缓动函数</h3>
+    <div>
+      <div class="block">1 贝塞尔</div>
+      <div class="block">2 贝塞尔</div>
+      <div class="block">3 贝塞尔</div>
+    </div>
+    <div>
+      <div class="block1 animate">css 贝塞尔</div>
+    </div>
+
+
+  </div>
+  <script src="./bezier-easing.min.js"></script>
+  <script type="module">
+    import { Animator } from './Animate.js';
+    const block1 = document.querySelector('.block:nth-child(1)');
+    const animator1 = new Animator({ duration: 5000, easing: BezierEasing(0.5, -1.5, 0.5, 2.5) });
+    block1.addEventListener('click', () => {
+      animator1.animate({ el: block1, start: 0, end: 500 }, ({ target: { el, start, end }, timing: { p } }) => {
+        const left = start * (1 - p) + end * p;
+        el.style.left = `${left}px`;
+      });
+    });
+
+    const block2 = document.querySelector('.block:nth-child(2)');
+    const animator2 = new Animator({ duration: 5000, easing: BezierEasing(0.12, 0, 0.39, 0) });
+    block2.addEventListener('click', () => {
+      animator2.animate({ el: block2, start: 0, end: 500 }, ({ target: { el, start, end }, timing: { p } }) => {
+        const left = start * (1 - p) + end * p;
+        el.style.left = `${left}px`;
+      });
+    });
+
+    const block3 = document.querySelector('.block:nth-child(3)');
+    const animator3 = new Animator({ duration: 5000, easing: BezierEasing(0.87, 0, 0.13, 1) });
+    block3.addEventListener('click', () => {
+      animator3.animate({ el: block3, start: 0, end: 500 }, ({ target: { el, start, end }, timing: { p } }) => {
+        const left = start * (1 - p) + end * p;
+        el.style.left = `${left}px`;
+      });
+    });
+  </script>
+</body>
+
+</html>

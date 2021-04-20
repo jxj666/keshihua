@@ -19,5 +19,8 @@
   "homepage": "https://github.com/jxj322991/keshihua#readme",
   "devDependencies": {
     "lite-server": "^2.6.1"
+  },
+  "dependencies": {
+    "bezier-easing": "^2.1.0"
   }
 }
