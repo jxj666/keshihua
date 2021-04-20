@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2021-04-20 00:19:00
+ * @LastEditTime: 2021-04-21 00:03:20
  * @LastEditors: jinxiaojian
 -->
 
@@ -13,8 +13,6 @@
      .container {
        display: flex;
        flex-wrap: wrap;
-       justify-content: space-between;
-       width: 300px;
      }
      .block {
        width: 100px;
@@ -22,19 +20,18 @@
        margin: 20px;
        flex-shrink: 0;
        transform-origin: 50% 50%;
+       color:#fff
      }
      .block:nth-child(1) {background: red;}
      .block:nth-child(2) {background: blue;}
      .block:nth-child(3) {background: green;}
-     .block:nth-child(4) {background: orange;}
    </style>
  </head>
  <body>
    <div class="container">
-     <div class="block"></div>
-     <div class="block"></div>
-     <div class="block"></div>
-     <div class="block"></div>
+     <div class="block">1</div>
+     <div class="block">2</div>
+     <div class="block">3</div>
    </div>
    <script type="module">
      import {Animator} from './Animate.js';
@@ -43,7 +40,7 @@
      (async function () {
        let i = 0;
        while(true) { 
-         await animator.animate(blocks[i++ % 4], ({target, timing}) => {
+         await animator.animate(blocks[i++ % 3], ({target, timing}) => {
            target.style.transform = `rotate(${timing.p * 360}deg)`;
          });
        }
