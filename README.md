@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2021-04-23 00:21:50
+ * @LastEditTime: 2021-04-25 00:16:33
  * @LastEditors: jinxiaojian
 -->
 # 靳小健的可视化学习
@@ -7,7 +7,11 @@
 ## C WebGL 实验 
 [webGL绘制正方形](./WebGL/2/index.html)
 [webGL绘制彩色正方形](./WebGL/3/index.html)
-
+[旋转](./WebGL/4/index.html)
+[旋转正方体](./WebGL/5/index.html)
+[贴图](./WebGL/6/index.html)
+[光照](./WebGL/7/index.html)
+[视频](./WebGL/8/index.html)
 
 ## B 高级视觉篇
 ![b](./img/2.jpg)

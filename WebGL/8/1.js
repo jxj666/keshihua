@@ -1,4 +1,6 @@
 var cubeRotation = 0.0;
+// will set to true when video can be copied to texture
+var copyVideo = false;
 
 
 //
@@ -19,13 +21,23 @@ function main () {
 
   const vsSource = `
     attribute vec4 aVertexPosition;
+    attribute vec3 aVertexNormal;
     attribute vec2 aTextureCoord;
+    uniform mat4 uNormalMatrix;
     uniform mat4 uModelViewMatrix;
     uniform mat4 uProjectionMatrix;
     varying highp vec2 vTextureCoord;
+    varying highp vec3 vLighting;
     void main(void) {
       gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
       vTextureCoord = aTextureCoord;
+      // Apply lighting effect
+      highp vec3 ambientLight = vec3(0.3, 0.3, 0.3);
+      highp vec3 directionalLightColor = vec3(1, 1, 1);
+      highp vec3 directionalVector = normalize(vec3(0.85, 0.8, 0.75));
+      highp vec4 transformedNormal = uNormalMatrix * vec4(aVertexNormal, 1.0);
+      highp float directional = max(dot(transformedNormal.xyz, directionalVector), 0.0);
+      vLighting = ambientLight + (directionalLightColor * directional);
     }
   `;
 
@@ -33,9 +45,11 @@ function main () {
 
   const fsSource = `
     varying highp vec2 vTextureCoord;
+    varying highp vec3 vLighting;
     uniform sampler2D uSampler;
     void main(void) {
-      gl_FragColor = texture2D(uSampler, vTextureCoord);
+      highp vec4 texelColor = texture2D(uSampler, vTextureCoord);
+      gl_FragColor = vec4(texelColor.rgb * vLighting, texelColor.a);
     }
   `;
 
@@ -45,17 +59,19 @@ function main () {
 
   // Collect all the info needed to use the shader program.
   // Look up which attributes our shader program is using
-  // for aVertexPosition, aTextureCoord and also
-  // look up uniform locations.
+  // for aVertexPosition, aVertexNormal, aTextureCoord,
+  // and look up uniform locations.
   const programInfo = {
     program: shaderProgram,
     attribLocations: {
       vertexPosition: gl.getAttribLocation(shaderProgram, 'aVertexPosition'),
+      vertexNormal: gl.getAttribLocation(shaderProgram, 'aVertexNormal'),
       textureCoord: gl.getAttribLocation(shaderProgram, 'aTextureCoord'),
     },
     uniformLocations: {
       projectionMatrix: gl.getUniformLocation(shaderProgram, 'uProjectionMatrix'),
       modelViewMatrix: gl.getUniformLocation(shaderProgram, 'uModelViewMatrix'),
+      normalMatrix: gl.getUniformLocation(shaderProgram, 'uNormalMatrix'),
       uSampler: gl.getUniformLocation(shaderProgram, 'uSampler'),
     }
   };
@@ -64,7 +80,9 @@ function main () {
   // objects we'll be drawing.
   const buffers = initBuffers(gl);
 
-  const texture = loadTexture(gl, 'favicon.png');
+  const texture = initTexture(gl);
+
+  const video = setupVideo('edr.mp4');
 
   var then = 0;
 
@@ -74,11 +92,50 @@ function main () {
     const deltaTime = now - then;
     then = now;
 
+    if (copyVideo) {
+      updateTexture(gl, texture, video);
+    }
+
     drawScene(gl, programInfo, buffers, texture, deltaTime);
 
     requestAnimationFrame(render);
   }
   requestAnimationFrame(render);
+}
+// 获取视频
+function setupVideo (url) {
+  const video = document.createElement('video');
+
+  var playing = false;
+  var timeupdate = false;
+
+  video.autoplay = true;
+  video.muted = true;
+  video.loop = true;
+
+  // Waiting for these 2 events ensures
+  // there is data in the video
+
+  video.addEventListener('playing', function () {
+    playing = true;
+    checkReady();
+  }, true);
+
+  video.addEventListener('timeupdate', function () {
+    timeupdate = true;
+    checkReady();
+  }, true);
+
+  video.src = url;
+  video.play();
+
+  function checkReady () {
+    if (playing && timeupdate) {
+      copyVideo = true;
+    }
+  }
+
+  return video;
 }
 
 //
@@ -143,6 +200,52 @@ function initBuffers (gl) {
   // JavaScript array, then use it to fill the current buffer.
 
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
+
+  // Set up the normals for the vertices, so that we can compute lighting.
+
+  const normalBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, normalBuffer);
+
+  const vertexNormals = [
+    // Front
+    0.0, 0.0, 1.0,
+    0.0, 0.0, 1.0,
+    0.0, 0.0, 1.0,
+    0.0, 0.0, 1.0,
+
+    // Back
+    0.0, 0.0, -1.0,
+    0.0, 0.0, -1.0,
+    0.0, 0.0, -1.0,
+    0.0, 0.0, -1.0,
+
+    // Top
+    0.0, 1.0, 0.0,
+    0.0, 1.0, 0.0,
+    0.0, 1.0, 0.0,
+    0.0, 1.0, 0.0,
+
+    // Bottom
+    0.0, -1.0, 0.0,
+    0.0, -1.0, 0.0,
+    0.0, -1.0, 0.0,
+    0.0, -1.0, 0.0,
+
+    // Right
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+
+    // Left
+    -1.0, 0.0, 0.0,
+    -1.0, 0.0, 0.0,
+    -1.0, 0.0, 0.0,
+    -1.0, 0.0, 0.0,
+  ];
+
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertexNormals),
+    gl.STATIC_DRAW);
 
   // Now set up the texture coordinates for the faces.
 
@@ -211,25 +314,24 @@ function initBuffers (gl) {
 
   return {
     position: positionBuffer,
+    normal: normalBuffer,
     textureCoord: textureCoordBuffer,
     indices: indexBuffer,
   };
 }
 
 //
-// Initialize a texture and load an image.
-// When the image finished loading copy it into the texture.
+// Initialize a texture.
 //
-// 首先加入加载纹理的代码。现在我们只使用一张单一的纹理贴到立方体的6个面上，但是同样的方法可以用来加载任意数量的纹理贴图。
-function loadTexture (gl, url) {
+// 用视频帧作为纹理 
+function initTexture (gl, url) {
   const texture = gl.createTexture();
   gl.bindTexture(gl.TEXTURE_2D, texture);
 
-  // Because images have to be download over the internet
-  // they might take a moment until they are ready.
-  // Until then put a single pixel in the texture so we can
-  // use it immediately. When the image has finished downloading
-  // we'll update the texture with the contents of the image.
+  // Because video havs to be download over the internet
+  // they might take a moment until it's ready so
+  // put a single pixel in the texture so we can
+  // use it immediately.
   const level = 0;
   const internalFormat = gl.RGBA;
   const width = 1;
@@ -242,29 +344,26 @@ function loadTexture (gl, url) {
     width, height, border, srcFormat, srcType,
     pixel);
 
-  const image = new Image();
-  image.onload = function () {
-    gl.bindTexture(gl.TEXTURE_2D, texture);
-    gl.texImage2D(gl.TEXTURE_2D, level, internalFormat,
-      srcFormat, srcType, image);
-
-    // WebGL1 has different requirements for power of 2 images
-    // vs non power of 2 images so check if the image is a
-    // power of 2 in both dimensions.
-    if (isPowerOf2(image.width) && isPowerOf2(image.height)) {
-      // Yes, it's a power of 2. Generate mips.
-      gl.generateMipmap(gl.TEXTURE_2D);
-    } else {
-      // No, it's not a power of 2. Turn of mips and set
-      // wrapping to clamp to edge
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-    }
-  };
-  image.src = url;
+  // Turn off mips and set  wrapping to clamp to edge so it
+  // will work regardless of the dimensions of the video.
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
 
   return texture;
+}
+
+//
+// copy the video texture
+//
+function updateTexture (gl, texture, video) {
+  const level = 0;
+  const internalFormat = gl.RGBA;
+  const srcFormat = gl.RGBA;
+  const srcType = gl.UNSIGNED_BYTE;
+  gl.bindTexture(gl.TEXTURE_2D, texture);
+  gl.texImage2D(gl.TEXTURE_2D, level, internalFormat,
+    srcFormat, srcType, video);
 }
 
 function isPowerOf2 (value) {
@@ -317,12 +416,20 @@ function drawScene (gl, programInfo, buffers, texture, deltaTime) {
     [-0.0, 0.0, -6.0]);  // amount to translate
   mat4.rotate(modelViewMatrix,  // destination matrix
     modelViewMatrix,  // matrix to rotate
-    cubeRotation,     // amount to rotate in radians
+    cubeRotation * .1,// amount to rotate in radians
+    [1, 0, 0]);       // axis to rotate around (X)
+  mat4.rotate(modelViewMatrix,  // destination matrix
+    modelViewMatrix,  // matrix to rotate
+    cubeRotation * .1,     // amount to rotate in radians
     [0, 0, 1]);       // axis to rotate around (Z)
   mat4.rotate(modelViewMatrix,  // destination matrix
     modelViewMatrix,  // matrix to rotate
-    cubeRotation * .7,// amount to rotate in radians
+    cubeRotation * .1,// amount to rotate in radians
     [0, 1, 0]);       // axis to rotate around (X)
+
+  const normalMatrix = mat4.create();
+  mat4.invert(normalMatrix, modelViewMatrix);
+  mat4.transpose(normalMatrix, normalMatrix);
 
   // Tell WebGL how to pull out the positions from the position
   // buffer into the vertexPosition attribute
@@ -364,6 +471,26 @@ function drawScene (gl, programInfo, buffers, texture, deltaTime) {
       programInfo.attribLocations.textureCoord);
   }
 
+  // Tell WebGL how to pull out the normals from
+  // the normal buffer into the vertexNormal attribute.
+  {
+    const numComponents = 3;
+    const type = gl.FLOAT;
+    const normalize = false;
+    const stride = 0;
+    const offset = 0;
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffers.normal);
+    gl.vertexAttribPointer(
+      programInfo.attribLocations.vertexNormal,
+      numComponents,
+      type,
+      normalize,
+      stride,
+      offset);
+    gl.enableVertexAttribArray(
+      programInfo.attribLocations.vertexNormal);
+  }
+
   // Tell WebGL which indices to use to index the vertices
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, buffers.indices);
 
@@ -381,8 +508,11 @@ function drawScene (gl, programInfo, buffers, texture, deltaTime) {
     programInfo.uniformLocations.modelViewMatrix,
     false,
     modelViewMatrix);
+  gl.uniformMatrix4fv(
+    programInfo.uniformLocations.normalMatrix,
+    false,
+    normalMatrix);
 
-  // 绘制具体纹理贴图的立方体
   // Specify the texture to map onto the faces.
 
   // Tell WebGL we want to affect texture unit 0
