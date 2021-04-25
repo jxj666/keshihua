@@ -378,7 +378,11 @@ function drawScene (gl, programInfo, buffers, texture, deltaTime) {
     [-0.0, 0.0, -6.0]);  // amount to translate
   mat4.rotate(modelViewMatrix,  // destination matrix
     modelViewMatrix,  // matrix to rotate
-    cubeRotation,     // amount to rotate in radians
+    cubeRotation * .7,     // amount to rotate in radians
+    [1, 0, 0]);       // axis to rotate around (Z)
+  mat4.rotate(modelViewMatrix,  // destination matrix
+    modelViewMatrix,  // matrix to rotate
+    cubeRotation * .7,     // amount to rotate in radians
     [0, 0, 1]);       // axis to rotate around (Z)
   mat4.rotate(modelViewMatrix,  // destination matrix
     modelViewMatrix,  // matrix to rotate
