@@ -1,8 +1,84 @@
-
 .piegraph {
   display: inline-block;
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  background-image: conic-gradient(#37c 30deg, #3c7 30deg, #3c7 65deg, orange 65deg, orange 110deg, #f73 110deg, #f73 200deg, #ccc 200deg);
+  background-image: conic-gradient(
+    #37c 30deg,
+    #3c7 30deg,
+    #3c7 65deg,
+    orange 65deg,
+    orange 110deg,
+    #f73 110deg,
+    #f73 200deg,
+    #ccc 200deg
+  );
+}
+.piegraph1 {
+  display: inline-block;
+  width: 250px;
+  height: 250px;
+  background-image: conic-gradient(
+    #37c 30deg,
+    #3c7 30deg,
+    #3c7 65deg,
+    orange 65deg,
+    orange 110deg,
+    #f73 110deg,
+    #f73 200deg,
+    #ccc 200deg
+  );
+}
+
+.piegraph2 {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-image: conic-gradient(
+    #37c 30deg,
+    #3c7 30deg,
+    #3c7 65deg,
+    orange 65deg,
+    orange 110deg,
+    #f73 110deg,
+    #f73 200deg,
+    #ccc 200deg
+  );
+}
+.piegraph2::before {
+  content:'';
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background:#fff;
+
+}
+.piegraph3 {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-image: conic-gradient(
+    #37c 30deg,
+    #3c7 30deg,
+    #3c7 65deg,
+    orange 65deg,
+    orange 110deg,
+    #f73 110deg,
+    #f73 200deg,
+    #ccc 200deg
+  );
+}
+.piegraph3::before {
+  content:'';
+  width: 200px;
+  height: 200px;
+  background:#fff;
+
 }
