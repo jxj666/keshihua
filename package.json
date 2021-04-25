@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "bezier-easing": "^2.1.0",
+    "gl-matrix": "2.8.1",
     "gl-renderer": "^0.13.6"
   }
 }
