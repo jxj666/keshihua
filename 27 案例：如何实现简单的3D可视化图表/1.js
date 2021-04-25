@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-04-25 23:22:02
+ * @LastEditTime: 2021-04-25 23:45:18
  * @LastEditors: jinxiaojian
  */
 // Spritejs是跨平台的高性能图形系统，可以在Web，节点，桌面应用程序和小程序上渲染图形
@@ -49,22 +49,23 @@ async function getData (toDate = new Date()) {
 }
 
 (async function () {
+  // 创建一个 Scene 对象
   const container = document.getElementById('stage');
 
   const scene = new Scene({
     container,
     displayRatio: 2,
   });
-
+  // 创建 Layer 对象
   const layer = scene.layer3d('fglayer', {
     ambientColor: [0.5, 0.5, 0.5, 1],
     camera: {
-      fov: 35,
+      fov: 45,
     },
   });
   layer.camera.attributes.pos = [2, 6, 9];
   layer.camera.lookAt([0, 0, 0]);
-
+  // 补充细节，实现更好的视觉效果
   const light = new Light({
     direction: [-3, -3, -1],
     color: [1, 1, 1, 1],
@@ -72,12 +73,14 @@ async function getData (toDate = new Date()) {
 
   layer.addLight(light);
 
+  // 将数据转换成柱状元素
   const program = layer.createProgram({
     vertex: shaders.GEOMETRY.vertex,
     fragment: shaders.GEOMETRY.fragment,
     // cullFace: null,
   });
 
+  // 创建好 WebGL 程序之后，我们就可以获取数据，用数据来操作文档树了
   const dataset = await getData();
   const max = d3.max(dataset, (a) => {
     return a.count;
@@ -85,6 +88,7 @@ async function getData (toDate = new Date()) {
 
   /* globals d3 */
   const selection = d3.select(layer);
+  // 再增加一个过渡动画，让柱状图的高度从不显示，到慢慢显示出来
   const chart = selection.selectAll('cube')
     .data(dataset)
     .enter()
@@ -112,7 +116,7 @@ async function getData (toDate = new Date()) {
       return d.color;
     });
 
-
+    // 我们还可以给柱状图增加一个底座
   const fragment = `
     precision highp float;
     precision highp int;
@@ -142,11 +146,10 @@ async function getData (toDate = new Date()) {
   });
 
   layer.append(ground);
-
+  // 通过 chart.trainsition 来实现这个线性动画
   const linear = d3.scaleLinear()
     .domain([0, max])
     .range([0, 1.0]);
-
   chart.transition()
     .duration(2000)
     .attr('scaleY', (d, i) => {
