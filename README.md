@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2021-04-25 16:22:18
+ * @LastEditTime: 2021-04-25 16:57:43
  * @LastEditors: jinxiaojian
 -->
 # 靳小健的可视化学习
@@ -11,7 +11,7 @@
 [旋转正方体](./WebGL/5/index.html)
 [贴图](./WebGL/6/index.html)
 [光照](./WebGL/7/index.html)
-[视频](./WebGL/8/index.html)
+[视频](./WebGL/9/index.html)
 
 ## B 高级视觉篇
 ![b](./img/2.jpg)
