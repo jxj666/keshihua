@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-04-25 23:45:18
+ * @LastEditTime: 2021-04-26 00:00:43
  * @LastEditors: jinxiaojian
  */
 // Spritejs是跨平台的高性能图形系统，可以在Web，节点，桌面应用程序和小程序上渲染图形
@@ -140,6 +140,7 @@ async function getData (toDate = new Date()) {
   const ground = new Cube(axisProgram, {
     width: 7.6,
     height: 0.1,
+    z:-0.01,
     y: -0.049, // not 0.05 to avoid z-fighting
     depth: 1,
     colors: 'rgba(0, 0, 0, 0.1)',
