@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-04-26 00:00:43
+ * @LastEditTime: 2021-04-26 00:07:28
  * @LastEditors: jinxiaojian
  */
 // Spritejs是跨平台的高性能图形系统，可以在Web，节点，桌面应用程序和小程序上渲染图形
@@ -95,8 +95,8 @@ async function getData (toDate = new Date()) {
     .append(() => {
       return new Cube(program);
     })
-    .attr('width', 0.14)
-    .attr('depth', 0.14)
+    .attr('width', 0.1667)
+    .attr('depth', 0.1667)
     .attr('height', 1)
     // Note: use scaleY. DONT use height directly because the change of height
     // will rebuild geometry(much slower).
@@ -107,8 +107,8 @@ async function getData (toDate = new Date()) {
     .attr('pos', (d, i) => {
       const x0 = -3.8 + 0.0717 + 0.0015;
       const z0 = -0.5 + 0.05 + 0.0015;
-      const x = x0 + 0.143 * Math.floor(i / 7);
-      const z = z0 + 0.143 * (i % 7);
+      const x = x0 + 0.1667 * Math.floor(i / 6);
+      const z = z0 + 0.1667 * (i % 6);
       // return [x, 0.5 * d.count / max, z];
       return [x, 0, z];
     })
@@ -124,7 +124,7 @@ async function getData (toDate = new Date()) {
     varying vec2 vUv;
     void main() {
       float x = fract(vUv.x * 53.0);
-      float y = fract(vUv.y * 7.0);
+      float y = fract(vUv.y * 6.0);
       x = smoothstep(0.0, 0.1, x) - smoothstep(0.9, 1.0, x);
       y = smoothstep(0.0, 0.1, y) - smoothstep(0.9, 1.0, y);
       gl_FragColor = vColor * (x + y);
@@ -141,6 +141,7 @@ async function getData (toDate = new Date()) {
     width: 7.6,
     height: 0.1,
     z:-0.01,
+    x:2.75,
     y: -0.049, // not 0.05 to avoid z-fighting
     depth: 1,
     colors: 'rgba(0, 0, 0, 0.1)',
