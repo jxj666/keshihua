@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-04-27 00:11:28
+ * @LastEditTime: 2021-04-27 00:19:37
  * @LastEditors: jinxiaojian
  */
 // Spritejs是跨平台的高性能图形系统，可以在Web，节点，桌面应用程序和小程序上渲染图形
@@ -39,7 +39,7 @@ async function getData (toDate = new Date()) {
       fov: 45,
     },
   });
-  layer.camera.attributes.pos = [2, 6, 9];
+  layer.camera.attributes.pos = [10, 10, 10];
   layer.camera.lookAt([0, 0, 0]);
   // 补充细节，实现更好的视觉效果
   const light = new Light({
@@ -80,7 +80,7 @@ async function getData (toDate = new Date()) {
     .attr('height', d=>d.val*0.01)
     .attr('scaleY', 0.001)
     .attr('pos', (d, i) => {
-      const x0 = -1;
+      const x0 = -1.5;
       const z0 = -0.5 + 0.05 + 0.0015;
       const x = x0 + 0.1667 * Math.floor(i / 6);
       const z = z0 + 0.1667 * (i % 6);
@@ -113,11 +113,11 @@ async function getData (toDate = new Date()) {
   });
 
   const ground = new Cube(axisProgram, {
-    width: 8,
+    width: 8.3,
     height: 0.1,
     z: -0.01,
-    x: 2.75,
-    y: -0.049, // not 0.05 to avoid z-fighting
+    x: 2.6,
+    y: -0, // not 0.05 to avoid z-fighting
     depth: 1,
     colors: 'rgba(0, 0, 0, 0.1)',
   });
