@@ -1,0 +1,141 @@
+@keyframes render {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.svg {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 800px;
+}
+
+.legend {
+  max-width: 250px;
+  margin-left: 30px;
+}
+
+.title {
+  font-family: "Verdana", sans-serif;
+  font-size: 18px;
+  line-height: 21px;
+  color: #591d48;
+}
+
+.caption-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.caption-item {
+  position: relative;
+
+  margin: 20px 0;
+  padding-left: 30px;
+
+  font-family: "Verdana", sans-serif;
+  font-size: 16px;
+  line-height: 18px;
+  color: #591d48;
+  cursor: pointer;
+}
+
+.caption-item:hover {
+  opacity: 0.8;
+}
+
+.caption-item::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 20px;
+  height: 20px;
+
+  border-radius: 8px;
+}
+
+.caption-item:nth-child(1)::before {
+  background-color: #86cfa3;
+}
+
+.caption-item:nth-child(2)::before {
+  background-color: #a2c6e0;
+}
+
+.caption-item:nth-child(3)::before {
+  background-color: #ffc7ec;
+}
+
+
+.chart {
+  min-width: 500px;
+}
+
+.unit {
+  fill: none;
+  stroke-width: 10;
+  cursor: pointer;
+
+  animation-name: render;
+  animation-duration: 1.5s;
+  transition-property: all;
+  transition-duration: 1.5s;
+}
+
+.unit:hover,
+.hovered {
+  opacity: 0.8;
+  stroke-width: 12;
+}
+
+.unit:nth-child(1) {
+  stroke: #86cfa3;
+  stroke-dasharray: 20 100;
+}
+
+.unit:nth-child(2) {
+  stroke: #a2c6e0;
+  stroke-dasharray: 30 100;
+  stroke-dashoffset: -20;
+}
+
+.unit:nth-child(3) {
+  stroke: #ffc7ec;
+  stroke-dasharray: 50 100;
+  stroke-dashoffset: -50;
+}
+
+.block{
+  width: 500px;
+  height: 500px;
+
+}
+
+
+.unit2 {
+  cursor: pointer;
+  animation-name: render2;
+  animation-duration: 1.5s;
+  transition-property: all;
+  transition-duration: 1.5s;
+}
+.unit2:hover {
+  stroke: yellow;
+}
+@keyframes render2 {
+  0% {
+    height: 0;
+    y:0;
+  }
+}
