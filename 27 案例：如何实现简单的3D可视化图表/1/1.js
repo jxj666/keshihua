@@ -64,7 +64,6 @@ async function getData (toDate = new Date()) {
   const selection = d3.select(layer);
   const chart1 = selection.selectAll('cube')
   .data(dataset)
-  console.log(chart1)
   // 再增加一个过渡动画，让柱状图的高度从不显示，到慢慢显示出来
   const chart = selection.selectAll('cube')
     .data(dataset)
@@ -78,11 +77,11 @@ async function getData (toDate = new Date()) {
     .attr('scaleY', 0.001)
     .attr('pos', (d, i) => {
       const x0 = -1.5;
-      const z0 = -0.5 + 0.05 + 0.0015;
+      const z0 = -0.48 + 0.05 + 0.0015;
       const x = x0 + 0.1667 * Math.floor(i / 6);
       const z = z0 + 0.1667 * (i % 6);
       // return [x, 0.5 * d.val / max, z];
-      return [x, 0, z];
+      return [x, -.1, z];
     })
     .attr('colors', (d, i) => {
       return d.color;
@@ -111,7 +110,7 @@ async function getData (toDate = new Date()) {
 
   const ground = new Cube(axisProgram, {
     width: 8.3,
-    height: 0.1,
+    height: 0.3,
     z: -0.01,
     x: 2.6,
     y: -0, // not 0.05 to avoid z-fighting
@@ -130,7 +129,7 @@ async function getData (toDate = new Date()) {
       return linear(d.val);
     })
     .attr('y', (d, i) => {
-      return 0.5 * linear(d.val);
+      return -.1 + 0.5 * linear(d.val);
     });
 
   layer.setOrbit();
