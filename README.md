@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2021-04-25 23:57:18
+ * @LastEditTime: 2021-04-26 11:08:48
  * @LastEditors: jinxiaojian
 -->
 # 靳小健的可视化学习
@@ -40,6 +40,8 @@
 ### 03 声明式图形系统：如何用SVG图形元素绘制可视化图表？
 1. [svg](./3%20%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%9B%BE%E5%BD%A2%E7%B3%BB%E7%BB%9F/1/index.html)
 1. [svg+d3](./3%20%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%9B%BE%E5%BD%A2%E7%B3%BB%E7%BB%9F/2/index.html)
+1. [网格图](./3%20声明式图形系统/3/1.html)
+1. [拐弯条形图](./3%20声明式图形系统/4/1.html)
 
 ### 02 指令式绘图系统：如何用Canvas绘制层次关系图？
 1. [canvas](./2%20%E6%8C%87%E4%BB%A4%E5%BC%8F%E7%BB%98%E5%9B%BE%E7%B3%BB%E7%BB%9F/1/index.html)
