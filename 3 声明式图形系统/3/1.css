@@ -3,6 +3,9 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.displayN{
+  display: none;
+}
 ._1MvNn {
   width: 18px;
   height: 18px;
