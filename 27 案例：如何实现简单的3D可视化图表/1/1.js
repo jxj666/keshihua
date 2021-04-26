@@ -1,11 +1,4 @@
-/*
-<<<<<<< HEAD
- * @LastEditTime: 2021-04-27 00:19:37
-=======
- * @LastEditTime: 2021-04-26 11:15:59
->>>>>>> 86dd8fa17e47b83ab7e9a10ed265d1bb765c4215
- * @LastEditors: jinxiaojian
- */
+
 // Spritejs是跨平台的高性能图形系统，可以在Web，节点，桌面应用程序和小程序上渲染图形
 import { Scene } from 'https://unpkg.com/spritejs/dist/spritejs.esm.js';
 // spritejs的3d扩展
