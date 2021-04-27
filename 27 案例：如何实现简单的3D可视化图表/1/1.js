@@ -110,7 +110,7 @@ async function getData (toDate = new Date()) {
 
   const ground = new Cube(axisProgram, {
     width: 8.3,
-    height: 0.3,
+    height: 0.2,
     z: -0.01,
     x: 2.6,
     y: -0, // not 0.05 to avoid z-fighting
