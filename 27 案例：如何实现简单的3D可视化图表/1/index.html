@@ -1,9 +1,10 @@
 <!--
- * @LastEditTime: 2021-04-26 23:32:22
+ * @LastEditTime: 2021-04-27 10:37:23
  * @LastEditors: jinxiaojian
 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,16 +13,21 @@
     #stage {
       width: 90vw;
       height: 90vh;
-      border:1px dashed gray;
+      border: 1px dashed gray;
     }
   </style>
 </head>
+
 <body>
   <script src="https://d3js.org/d3.v5.js"></script>
+  <h1>
+    可视化学习
+  </h1>
+  <h2>
+    按照六种告警类型,绘制的每日告警数量图
+  </h2>
   <div id="stage" defer></div>
-  <div>
-    第一步是处理数据，我们可以通过 API 获取 JSON 数据，然后得到我们想要的数据格式。第二步是渲染数据，今天我们是使用 SpriteJS 来渲染的，它的 API 类似于 DOM，对 d3 非常友好。所以我们可以直接使用 d3-selection，以数据驱动文档的方式就可以构建几何体元素。
-  </div>
   <script type="module" src="1.js"></script>
 </body>
+
 </html>
