@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-04-29 20:02:22
+ * @LastEditTime: 2021-04-29 23:59:57
  * @LastEditors: jinxiaojian
  */
 
@@ -7,7 +7,7 @@
 const canvas = document.querySelector('canvas');
 const gl = canvas.getContext('webgl');
 
-// 创建定点着色器,片作色器代码
+// 创建顶点着色器/片元着色器代码
 const vertex = `
 attribute vec2 position;
 varying vec3 color;
@@ -27,33 +27,31 @@ const fragment = `
   }    
 `;
 
-//生成图形形状
+//创建成 形状 对象
 const vertexShader = gl.createShader(gl.VERTEX_SHADER);
 gl.shaderSource(vertexShader, vertex);
 gl.compileShader(vertexShader);
-//生成图形形状
 const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
 gl.shaderSource(fragmentShader, fragment);
 gl.compileShader(fragmentShader);
-//生成场景
+//创建 WebGLProgram 对象
 const program = gl.createProgram();
 gl.attachShader(program, vertexShader);
 gl.attachShader(program, fragmentShader);
-//应用图形
 gl.linkProgram(program);
+//启用
 gl.useProgram(program);
-// 定义要展示位置
+// 定义三角形的三个顶点位置
 const points = new Float32Array([
   -1, -1,
   0, 1,
   1, -1,
 ]);
-//建立位置缓冲区
+//位置数据写入 WebGL 的缓冲区
 const bufferId = gl.createBuffer();
 gl.bindBuffer(gl.ARRAY_BUFFER, bufferId);
 gl.bufferData(gl.ARRAY_BUFFER, points, gl.STATIC_DRAW);
-
-//缓冲区置入图形
+//图形信息置入缓冲器
 const vPosition = gl.getAttribLocation(program, 'position');
 gl.vertexAttribPointer(vPosition, 2, gl.FLOAT, false, 0, 0);
 gl.enableVertexAttribArray(vPosition);
