@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-04-29 17:50:06
+ * @LastEditTime: 2021-04-29 17:51:51
  * @LastEditors: jinxiaojian
  */
 const dataSource = './1.json';
@@ -11,7 +11,7 @@ const dataSource = './1.json';
   const regions = d3.hierarchy(rootData)
     .sum(d => 1)
   const pack = d3.pack()
-    .size([800, 800])
+    .size([1600, 1600])
     .padding(10);
 
   const root = pack(regions);
