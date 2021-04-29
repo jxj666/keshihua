@@ -1,8 +1,8 @@
 /*
- * @LastEditTime: 2021-04-29 17:46:07
+ * @LastEditTime: 2021-04-29 17:46:33
  * @LastEditors: jinxiaojian
  */
-const dataSource = 'https://s5.ssl.qhres.com/static/b0695e2dd30daa64.json';
+const dataSource = './1.json';
 
 /* globals d3 */
 (async function () {
