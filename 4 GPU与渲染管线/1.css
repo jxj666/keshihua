@@ -1,4 +1,5 @@
 canvas{
-  width: 50vw;
-  height:50vw;
+  width: 30vw;
+  height:30vw;
+  border:1px solid gray;
 }
