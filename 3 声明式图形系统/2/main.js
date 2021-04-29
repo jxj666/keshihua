@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-04-29 19:35:53
+ * @LastEditTime: 2021-04-29 19:47:44
  * @LastEditors: jinxiaojian
  */
 const dataSource = './1.json';
@@ -10,6 +10,10 @@ function getTitle (target) {
   const name = target.getAttribute('data-name');
   if (target.parentNode && target.parentNode.nodeName === 'g') {
     const parentName = target.parentNode.getAttribute('data-name');
+    if (target.parentNode.parentNode && target.parentNode.parentNode.nodeName === 'g') {
+      const _parentName = target.parentNode.parentNode.getAttribute('data-name');
+      return `${_parentName}-${parentName}-${name}`;
+    }
     return `${parentName}-${name}`;
   }
   return name || '图例';
