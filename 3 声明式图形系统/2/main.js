@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-04-29 17:42:41
+ * @LastEditTime: 2021-04-29 19:11:01
  * @LastEditors: jinxiaojian
  */
 const dataSource = './1.json';
@@ -18,7 +18,7 @@ function getTitle (target) {
 /* globals d3 */
 (async function () {
   const data = await (await fetch(dataSource)).json()
-  const rootData=data.data.root
+  const rootData = data.data.root
   const regions = d3.hierarchy(rootData)
     .sum(d => 1)
     .sort((a, b) => b.value - a.value);
@@ -32,6 +32,9 @@ function getTitle (target) {
   function draw (parent, node, { fillStyle = 'rgba(0, 0, 0, 0.2)', textColor = 'white' } = {}) {
     const { x, y, r, children } = node;
     const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    if (node.data.threat_name_list && node.data.threat_name_list.length) {
+      fillStyle = 'rgba(255, 0, 0, 0.2)'
+    }
     circle.setAttribute('data-name', node.data.name || node.data.proc_file.name);
     circle.setAttribute('cx', x);
     circle.setAttribute('cy', y);
@@ -50,10 +53,23 @@ function getTitle (target) {
       text.setAttribute('font-size', '1rem');
       text.setAttribute('text-anchor', 'middle');
       text.setAttribute('x', x);
-      text.setAttribute('y', y);
+      text.setAttribute('y', y - 10);
       const name = node.data.name || node.data.proc_file.name;
       text.textContent = name;
       parent.appendChild(text);
+      if (node.data.threat_name_list && node.data.threat_name_list.length) {
+        const name = node.data.threat_name_list.join('-');
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttribute('fill', textColor);
+        text.setAttribute('font-family', 'Arial');
+        text.setAttribute('font-size', '0.5rem');
+        text.setAttribute('text-anchor', 'middle');
+        text.setAttribute('x', x);
+        text.setAttribute('y', y + 10);
+        text.textContent = name;
+        parent.appendChild(text);
+      }
+
     }
   }
 
@@ -62,17 +78,19 @@ function getTitle (target) {
   let activeTarget = null;
   svgroot.addEventListener('mousemove', (evt) => {
     let target = evt.target;
-    if (target.nodeName === 'text') {
-      target = target.parentNode;
+    if (target.nodeName != 'circle') {
+      activeTarget.setAttribute('stroke', '');
+      return
     } else {
       titleEl.textContent = getTitle(target);
     }
     if (activeTarget !== target) {
-      if (activeTarget) activeTarget.setAttribute('fill', 'rgba(0, 0, 0, 0.2)');
+      if (activeTarget) activeTarget.setAttribute('stroke', '');
 
     }
-    target.setAttribute('fill', 'rgba(0, 128, 0, 0.1)');
     activeTarget = target;
+    target.setAttribute('stroke', 'red');
+
   });
 
 }());
