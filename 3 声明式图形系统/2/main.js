@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-04-29 19:11:01
+ * @LastEditTime: 2021-04-29 19:35:53
  * @LastEditors: jinxiaojian
  */
 const dataSource = './1.json';
@@ -79,7 +79,7 @@ function getTitle (target) {
   svgroot.addEventListener('mousemove', (evt) => {
     let target = evt.target;
     if (target.nodeName != 'circle') {
-      activeTarget.setAttribute('stroke', '');
+      if (activeTarget) activeTarget.setAttribute('stroke', '');
       return
     } else {
       titleEl.textContent = getTitle(target);
