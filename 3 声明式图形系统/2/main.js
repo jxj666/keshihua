@@ -1,8 +1,8 @@
 /*
- * @LastEditTime: 2021-03-26 00:37:45
+ * @LastEditTime: 2021-04-29 17:42:41
  * @LastEditors: jinxiaojian
  */
-const dataSource = 'https://s5.ssl.qhres.com/static/b0695e2dd30daa64.json';
+const dataSource = './1.json';
 
 const titleEl = document.getElementById('title');
 
@@ -17,9 +17,9 @@ function getTitle (target) {
 
 /* globals d3 */
 (async function () {
-  const data = await (await fetch(dataSource)).json();
-  console.log(data)
-  const regions = d3.hierarchy(data)
+  const data = await (await fetch(dataSource)).json()
+  const rootData=data.data.root
+  const regions = d3.hierarchy(rootData)
     .sum(d => 1)
     .sort((a, b) => b.value - a.value);
   const pack = d3.pack()
@@ -27,13 +27,12 @@ function getTitle (target) {
     .padding(10);
 
   const root = pack(regions);
-  console.log(root)
 
   const svgroot = document.querySelector('svg');
   function draw (parent, node, { fillStyle = 'rgba(0, 0, 0, 0.2)', textColor = 'white' } = {}) {
     const { x, y, r, children } = node;
     const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    circle.setAttribute('data-name', node.data.name);
+    circle.setAttribute('data-name', node.data.name || node.data.proc_file.name);
     circle.setAttribute('cx', x);
     circle.setAttribute('cy', y);
     circle.setAttribute('r', r);
@@ -41,18 +40,18 @@ function getTitle (target) {
     parent.appendChild(circle);
     if (children) {
       const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-      group.setAttribute('data-name', node.data.name);
+      group.setAttribute('data-name', node.data.name || node.data.proc_file.name);
       for (let i = 0; i < children.length; i++) { draw(group, children[i], { fillStyle, textColor }); }
       parent.appendChild(group);
     } else {
       const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
       text.setAttribute('fill', textColor);
       text.setAttribute('font-family', 'Arial');
-      text.setAttribute('font-size', '0.5rem');
+      text.setAttribute('font-size', '1rem');
       text.setAttribute('text-anchor', 'middle');
       text.setAttribute('x', x);
       text.setAttribute('y', y);
-      const name = node.data.name;
+      const name = node.data.name || node.data.proc_file.name;
       text.textContent = name;
       parent.appendChild(text);
     }
@@ -67,7 +66,6 @@ function getTitle (target) {
       target = target.parentNode;
     } else {
       titleEl.textContent = getTitle(target);
-
     }
     if (activeTarget !== target) {
       if (activeTarget) activeTarget.setAttribute('fill', 'rgba(0, 0, 0, 0.2)');

@@ -1,14 +1,14 @@
 /*
- * @LastEditTime: 2021-03-25 00:38:38
+ * @LastEditTime: 2021-04-29 17:46:07
  * @LastEditors: jinxiaojian
  */
 const dataSource = 'https://s5.ssl.qhres.com/static/b0695e2dd30daa64.json';
 
 /* globals d3 */
 (async function () {
-  const data = await (await fetch(dataSource)).json();
-  console.log(data)
-  const regions = d3.hierarchy(data)
+  const data = await (await fetch(dataSource)).json()
+  const rootData = data.data.root
+  const regions = d3.hierarchy(rootData)
     .sum(d => 1)
     .sort((a, b) => b.value - a.value);
   const pack = d3.pack()
@@ -16,7 +16,6 @@ const dataSource = 'https://s5.ssl.qhres.com/static/b0695e2dd30daa64.json';
     .padding(10);
 
   const root = pack(regions);
-  console.log(root)
   const canvas = document.querySelector('canvas');
   const context = canvas.getContext('2d');
   const TAU = 2 * Math.PI;
@@ -33,7 +32,7 @@ const dataSource = 'https://s5.ssl.qhres.com/static/b0695e2dd30daa64.json';
         draw(context, children[i]);
       }
     } else {
-      const name = node.data.name;
+      const name = node.data.name || node.data.proc_file.name;
       ctx.fillStyle = textColor;
       ctx.font = '1rem Arial';
       ctx.textAlign = 'center';
