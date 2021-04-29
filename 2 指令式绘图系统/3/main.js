@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-04-29 17:46:33
+ * @LastEditTime: 2021-04-29 17:50:06
  * @LastEditors: jinxiaojian
  */
 const dataSource = './1.json';
@@ -10,9 +10,8 @@ const dataSource = './1.json';
   const rootData = data.data.root
   const regions = d3.hierarchy(rootData)
     .sum(d => 1)
-    .sort((a, b) => b.value - a.value);
   const pack = d3.pack()
-    .size([1600, 1600])
+    .size([800, 800])
     .padding(10);
 
   const root = pack(regions);
@@ -34,7 +33,7 @@ const dataSource = './1.json';
     } else {
       const name = node.data.name || node.data.proc_file.name;
       ctx.fillStyle = textColor;
-      ctx.font = '1rem Arial';
+      ctx.font = '2rem Arial';
       ctx.textAlign = 'center';
       ctx.fillText(name, x, y);
     }
