@@ -1,0 +1,38 @@
+<!--
+ * @LastEditTime: 2021-04-30 11:08:00
+ * @LastEditors: jinxiaojian
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>压缩</title>
+  <style>
+    canvas {
+      border: 1px dashed gray;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div>
+      <input type="file" id="fileId" name="fileId" value="上传图片" hidefocus="true" onchange="imgToMin(this.files,this.id);" />
+      <input type="button" value="压缩" onclick="imgInfo()" />
+      <canvas id="myCanvas"></canvas>
+    </div>
+    <div>
+      <img src="" alt="需要图片" id="ago" style="width: 500px;" />
+    </div>
+    <div>
+    </div>
+    <img src="" alt="上传后效果" id="press" />
+    <span id='result'></span>
+  </div>
+  <script src="./1.js"></script>
+</body>
+
+</html>
