@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-05-20 00:50:01
+ * @LastEditTime: 2021-05-20 10:40:31
  * @LastEditors: jinxiaojian
  */
 const root = document.querySelector('#svg');
@@ -85,9 +85,9 @@ const partition = data => {
 
       const t = g.transition().duration(750);
 
-      // Transition the data on all arcs, even the ones that aren’t visible,
-      // so that if this transition is interrupted, entering arcs will start
-      // the next transition from the desired position.
+      //转换所有弧上的数据，即使是不可见的弧，  
+      //如果这个转换被中断，进入弧将开始  
+      //从期望的位置的下一个转换。  
       path.transition(t)
         .tween("data", d => {
           const i = d3.interpolate(d.current, d.target);
