@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-05-21 01:12:52
+ * @LastEditTime: 2021-05-21 01:20:40
  * @LastEditors: jinxiaojian
  */
 const root = document.querySelector('#svg');
@@ -61,6 +61,7 @@ const partition = data => {
       .selectAll("text")
       .data(root.descendants().slice(1))
       .join("text")
+      .attr("font-size",'2em')
       .attr("dy", "0.35em")
       .attr("fill-opacity", d => +labelVisible(d.current))
       .attr("transform", d => labelTransform(d.current))
