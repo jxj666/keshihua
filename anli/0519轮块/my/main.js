@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-05-21 01:06:17
+ * @LastEditTime: 2021-05-21 01:12:52
  * @LastEditors: jinxiaojian
  */
 const root = document.querySelector('#svg');
@@ -52,7 +52,7 @@ const partition = data => {
       .on("click", clicked);
 
     path.append("title")
-      .text(d => `${d.ancestors().map(d => d.data.name).reverse().join("/")}\n进程占比:${format(d.value)}`);
+      .text(d => `进程路径: ${d.ancestors().map(d => d.data.name).reverse().join("/")}\n进程占比: ${format(d.value)}`);
 
     const label = g.append("g")
       .attr("pointer-events", "none")
