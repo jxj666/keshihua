@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jxj322991/keshihua.git"
+    "url": "git+https://github.com/jxj666/keshihua.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jxj322991/keshihua/issues"
+    "url": "https://github.com/jxj666/keshihua/issues"
   },
-  "homepage": "https://github.com/jxj322991/keshihua#readme",
+  "homepage": "https://github.com/jxj666/keshihua#readme",
   "devDependencies": {
     "lite-server": "^2.6.1"
   },
