@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-05-22 13:52:00
+ * @LastEditTime: 2021-05-24 14:59:34
  * @LastEditors: jinxiaojian
  */
 const mapData = [
@@ -118,7 +118,7 @@ const backprojection = d3.geoProjection(function (a, b) {
       });
     }
 
-    // no need to specify render() here, it's taken care of by the loop below.
+    //这里不需要指定render()，它由下面的循环处理。  
     // context.canvas.inertia = d3.geoInertiaDrag(d3.select(context.canvas), null, projection);
 
     const timer = d3.timer(function () {
