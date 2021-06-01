@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-06-02 00:06:33
+ * @LastEditTime: 2021-06-02 00:21:36
  * @LastEditors: jinxiaojian
  */
 const width = 1000
@@ -398,6 +398,7 @@ const FunnelChart = class FunnelChart {
 
   _attachEvents (target) {
     target
+
       .on("pointerenter", (e, d) => {
         this._showTooltip(e, d);
         if (this._onhover) this._onhover(d);
@@ -407,7 +408,12 @@ const FunnelChart = class FunnelChart {
       })
       .on("pointerleave", () => {
         this._hideTooltip();
-      });
+      })
+      .on("click", (e, d) => {
+        this._showTooltip(e, d);
+        if (this._onClick) this._onClick(d);
+      })
+    
   }
 
   _showTooltip (e, d) {
