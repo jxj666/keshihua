@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2021-05-23 23:08:39
+ * @LastEditTime: 2021-06-02 00:09:16
  * @LastEditors: jinxiaojian
 -->
 # 靳小健的可视化学习
@@ -7,6 +7,7 @@
 ## [https://jxj666.github.io/keshihua/](https://jxj666.github.io/keshihua/)
 
 ## D D3学习
+1. [0531比例块](./anli/0531比例块/my/index.html)
 1. [0522地球](./anli/0522地图/my/index.html)
 1. [0519轮块](./anli/0519轮块/my/index.html)
 
