@@ -1,16 +1,16 @@
 /*
- * @LastEditTime: 2021-06-01 00:12:29
+ * @LastEditTime: 2021-06-01 23:45:41
  * @LastEditors: jinxiaojian
  */
 const width = 1000
 const height = 1000
 const data = [
-  { state: "入侵执行", value: 1764545 },
-  { state: "巩固阵地", value: 1764545 },
-  { state: "主机提权", value: 4722699 },
-  { state: "躲避检测", value: 3276813 },
-  { state: "建立外连", value: 6925318 },
-  { state: "破坏窃取", value: 2380152 }
+  { state: "入侵执行", value: 1764545, color: '#FC7A1C' },
+  { state: "巩固阵地", value: 1764545, color: '#FB5621' },
+  { state: "主机提权", value: 4722699, color: '#FC613F' },
+  { state: "躲避检测", value: 3276813, color: '#F23F33' },
+  { state: "建立外连", value: 6925318, color: '#E40F0F' },
+  { state: "破坏窃取", value: 2380152, color: '#B90000' },
 
 ]
 
@@ -64,7 +64,8 @@ const FunnelChart = class FunnelChart {
 
     this._field = {
       stage: "stage",
-      value: "value"
+      value: "value",
+      color: "color"
     };
 
     this._tooltip = {
@@ -125,14 +126,6 @@ const FunnelChart = class FunnelChart {
     this._funnelWidth.max = this._width * 0.65;
 
     this._funnelWidth.min = this._width * 0.15;
-    /*
-    const ext = this._data.map(d => d.value);
-    if (this._streamlined)
-        this._funnelWidth.min = this._width * 0.15;
-    else {
-        this._funnelWidth.min = this._funnelWidth.max * ext[ext.length - 1] / ext[0];
-    }
-    */
 
     this._textBox = this._container
       .append("text")
@@ -214,10 +207,8 @@ const FunnelChart = class FunnelChart {
       .attr("font-family", this._font.fontFamily);
 
     this._renderLabels();
-    if (this._options.style === "3d")
-      this._renderFunnel2();
-    else
-      this._renderFunnel1();
+    this._renderFunnel();
+
   }
 
   _renderLabels () {
@@ -283,13 +274,15 @@ const FunnelChart = class FunnelChart {
       .call(g => {
         g
           .append("path")
-          .attr("fill", d => this._color(d.stage))
+          // .attr("fill", d => this._color(d.stage))
+          .attr('fill','red')
           .attr("d", layer)
       })
       .call(g => {
         g
           .append("path")
-          .attr("fill", d => d3.color(this._color(d.stage)).darker(0.5))
+          // .attr("fill", d => d3.color(this._color(d.stage)).darker(0.5))
+          .attr('fill','red')
           .attr("d", shadow)
       });
   }
@@ -322,55 +315,6 @@ const FunnelChart = class FunnelChart {
     });
   }
 
-  _renderFunnel1 () {
-    const
-      that = this,
-      { left, right } = this._getLinearEquationSet1();
-
-    const layers = this._renderLayers(layer, shadow);
-    this._renderNumbers(
-      layers,
-      d => {
-        if (this._streamlined) {
-          const y1 = this._y(d.vs), y2 = this._y(d.ve);
-          return `translate(${this._hw},${y1 + (y2 - y1) / 2})`;
-        }
-        else {
-          return `translate(${this._hw},${this._y(d.vs + d.value / 2)})`;
-        }
-      }
-    );
-
-    if (this._options.style === "2d") {
-      layers.attr("transform", (d, i) => {
-        return `translate(${i % 2 === 0 ? -5 : 5},0)`;
-      });
-    }
-
-    this._attachEvents(layers);
-
-    function layer (d) {
-      const
-        y0 = that._y(d.vs), y1 = that._y(d.ve),
-        x00 = left(y0), x01 = right(y0),
-        x10 = left(y1), x11 = right(y1);
-
-      return `M${x00},${y0}L${x01},${y0}L${x11},${y1}L${x10},${y1}L${x00},${y0}`;
-    }
-
-    function shadow (d, i) {
-      if (i > 0 && that._options.style === "2d") {
-        const
-          y0 = that._y(d.vs),
-          y1 = that._streamlined ? that._y(d.vs) + (that._y(d.ve) - that._y(d.vs)) / 5 : that._y(d.vs + d.value / 5),
-          w = (that._hw - left(y0)) * 1.5, // 2 * 0.75
-          x00 = i % 2 === 0 ? right(y0) : left(y0), x01 = i % 2 === 0 ? x00 - w : x00 + w,
-          x10 = i % 2 === 0 ? right(y1) : left(y1);
-
-        return `M${x00},${y0}L${x10},${y1}L${x01},${y0}L${x00},${y0}`;
-      }
-    }
-  }
 
   _getLinearEquationSet1 () {
     const left = this._x(
@@ -385,7 +329,7 @@ const FunnelChart = class FunnelChart {
     return { left, right };
   }
 
-  _renderFunnel2 () {
+  _renderFunnel () {
     const
       that = this,
       { pa, pc, xb, xt } = this._getLinearEquationSet2();
@@ -395,7 +339,8 @@ const FunnelChart = class FunnelChart {
         .call(g => {
           g
             .append("path")
-            .attr("fill", d => d3.color(this._color(d.stage)).darker(0.7))
+            // .attr("fill", d => d3.color(this._color(d.stage)).darker(0.7))
+            .attr("fill",'red')
             .attr("d", bottom)
         });
 
@@ -552,13 +497,15 @@ const FunnelChart = class FunnelChart {
           .attr("stroke-width", 0.5)
           .attr("rx", 4).attr("ry", 4)
           .attr("x", -5).attr("y", -5)
-          .attr("fill", this._tooltip.boxColor));
+          .attr("fill", this._tooltip.boxColor))
 
     const spacing = 1.1;
     this._infoBox
       .style("visibility", "visible")
       .select(".ibbg")
-      .attr("width", max + 20).attr("height", spacing * this._charBox.height * info.length + 5);
+      // .attr("width", max + 20).attr("height", spacing * this._charBox.height * info.length + 5);
+      .attr("width", max + 20).attr("height", 70);
+
 
     this._infoBox
       .selectAll("text")
@@ -634,6 +581,6 @@ const chart = function* (d3, width, height, FunnelChart, data) {
 
 }
 
-const getSvg=chart(d3, width, height, FunnelChart, data)
-getSvg.next() 
+const getSvg = chart(d3, width, height, FunnelChart, data)
+getSvg.next()
 document.querySelector('#svg').appendChild(getSvg.next().value)

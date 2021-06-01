@@ -1,6 +1,6 @@
-# Translucent Earth
+# Funnel Chart
 
-https://observablehq.com/d/1b17db183afaf902@370
+https://observablehq.com/d/059c0e2df21d1ca6@145
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,14 +14,14 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/1b17db183afaf902.tgz?v=3
+npm install https://api.observablehq.com/d/059c0e2df21d1ca6.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
 
 ~~~js
 import {Runtime, Inspector} from "@observablehq/runtime";
-import define from "1b17db183afaf902";
+import define from "059c0e2df21d1ca6";
 ~~~
 
 To log the value of the cell named “foo”:
