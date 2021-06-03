@@ -1,10 +1,8 @@
 <!--
- * @LastEditTime: 2021-05-23 23:08:39
+ * @LastEditTime: 2021-06-03 11:19:49
  * @LastEditors: jinxiaojian
 -->
 # 靳小健的可视化学习
-
-## [https://jxj666.github.io/keshihua/](https://jxj666.github.io/keshihua/)
 
 ## D D3学习
 1. [0522地球](./anli/0522地图/my/index.html)
