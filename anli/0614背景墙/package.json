@@ -1,0 +1,22 @@
+{
+  "name": "cee4991d6522c4e6",
+  "main": "cee4991d6522c4e6@3635.js",
+  "version": "3635.0.0",
+  "homepage": "https://observablehq.com/d/cee4991d6522c4e6",
+  "author": {
+    "name": "有熊肖健",
+    "url": "https://observablehq.com/@jxj322991"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  },
+  "dependencies": {
+    "d3": "^7.0.0",
+    "lite-server": "^2.6.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
+  }
+}

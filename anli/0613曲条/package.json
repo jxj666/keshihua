@@ -1,0 +1,14 @@
+{
+  "name": "93d6e0a2590cb9e6",
+  "main": "93d6e0a2590cb9e6@851.js",
+  "version": "851.0.0",
+  "homepage": "https://observablehq.com/d/93d6e0a2590cb9e6",
+  "author": {
+    "name": "有熊肖健",
+    "url": "https://observablehq.com/@jxj322991"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
