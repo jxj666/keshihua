@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-06-14 23:40:52
+ * @LastEditTime: 2021-06-14 23:55:04
  * @LastEditors: jinxiaojian
  */
 
@@ -61,7 +61,7 @@ const restore = () => {
   parts.start.transition().duration(500).attr("opacity", 1);
   parts.bar.transition().duration(500).attr("opacity", 1);
 }
-const title = g => g.append("title").text(d => `${lists[list]} - ${d.portName}\n${d3.format(".0f")(d.values[list])}`)
+const title = g => g.append("title").text(d => `${d.portName}\n${d3.format(".0f")(d.values[list])}`)
 const x = d3.scaleLinear()
   .domain([0, maxValue * 1.05])
   .range([0, 1.5 * Math.PI])
