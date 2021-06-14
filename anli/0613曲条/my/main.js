@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-06-14 23:35:02
+ * @LastEditTime: 2021-06-14 23:40:52
  * @LastEditors: jinxiaojian
  */
 
@@ -141,9 +141,8 @@ const drawStartLines = g => {
     .attr("alignment-baseline", "hanging")
     .attr("dx", start.left + start.padding)
     .attr("dy", 4)
-    .text(d => `${d.portName} ${d3.format(".0s")(d.values[list])}`);
+    .text(d => `${d.portName} ${d3.format(".0f")(d.values[list])}`);
   var widths = texts.nodes().map(d => {
-
     return d.getComputedTextLength() || d.innerHTML.length * 8
   });
   const ext = d3.extent(widths);
