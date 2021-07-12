@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-07-12 23:44:20
+ * @LastEditTime: 2021-07-12 23:51:09
  * @LastEditors: jinxiaojian
  */
 
@@ -63,12 +63,12 @@ const svgroot = document.querySelector('#mySvg');
 function draw (parent, node) {
   const { x, y, sea, warn } = node;
   if (x === 180 || x === -180 || y === 90 || y === -90) return
-  const r = 1
+  const r = 1.5
   let fillStyle = sea ? 'white' : 'gray'
   if(warn) fillStyle='red'
   const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-  circle.setAttribute('cx', x + 200);
-  circle.setAttribute('cy', -y + 100);
+  circle.setAttribute('cx', (x + 200)*2);
+  circle.setAttribute('cy', (-y + 100)*2);
   circle.setAttribute('r', r);
   circle.setAttribute('fill', fillStyle);
   parent.appendChild(circle);
