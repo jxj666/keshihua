@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-07-12 23:37:03
+ * @LastEditTime: 2021-07-12 23:44:20
  * @LastEditors: jinxiaojian
  */
 
@@ -56,7 +56,7 @@ const warnData = [
 
 function getPoint (point) {
   let xy = point.geometry.coordinates
-  return { x: xy[0]-xy[0]%3, y: xy[1]-xy[1]%3, warn:true }
+  return { x: xy[0]-xy[0]%2, y: xy[1]-xy[1]%2, warn:true }
 }
 
 const svgroot = document.querySelector('#mySvg');
