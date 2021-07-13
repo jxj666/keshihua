@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-07-13 10:50:06
+ * @LastEditTime: 2021-07-13 10:53:28
  * @LastEditors: jinxiaojian
  */
 
@@ -56,21 +56,22 @@ const warnData = [
 
 function getPoint (point) {
   let xy = point.geometry.coordinates
-  return { x: xy[0]-xy[0]%2, y: xy[1]-xy[1]%2, warn:true }
+  return { x: xy[0] - xy[0] % 2, y: xy[1] - xy[1] % 2, warn: true, label: point.label }
 }
 
 const svgroot = document.querySelector('#mySvg');
 function draw (parent, node) {
-  const { x, y, sea, warn } = node;
+  const { x, y, sea, warn, label } = node;
   if (x === 180 || x === -180 || y === 90 || y === -90) return
   const r = 2
   let fillStyle = sea ? 'white' : 'gray'
-  if(warn) fillStyle='red'
+  if (warn) fillStyle = 'red'
   const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-  circle.setAttribute('cx', (x + 200)*3);
-  circle.setAttribute('cy', (-y + 100)*3);
+  circle.setAttribute('cx', (x + 200) * 3);
+  circle.setAttribute('cy', (-y + 100) * 3);
   circle.setAttribute('r', r);
   circle.setAttribute('fill', fillStyle);
+  circle.setAttribute('title', label);
   parent.appendChild(circle);
 }
 
@@ -78,8 +79,8 @@ map.forEach(x => {
   draw(svgroot, x)
 })
 
-let warnMap=[]
-warnData.forEach(x=>{
+let warnMap = []
+warnData.forEach(x => {
   warnMap.push(getPoint(x))
 })
 warnMap.forEach(x => {
