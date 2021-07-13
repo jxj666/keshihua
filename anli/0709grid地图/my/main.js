@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-07-13 10:53:28
+ * @LastEditTime: 2021-07-13 11:06:10
  * @LastEditors: jinxiaojian
  */
 
@@ -56,7 +56,10 @@ const warnData = [
 
 function getPoint (point) {
   let xy = point.geometry.coordinates
-  return { x: xy[0] - xy[0] % 2, y: xy[1] - xy[1] % 2, warn: true, label: point.label }
+  function near (num) {
+    return num % 2 > 1 ? num + (2 - num % 2) : num - num % 2
+  }
+  return { x: near(xy[0]), y: near(xy[1]), warn: true, label: point.label }
 }
 
 const svgroot = document.querySelector('#mySvg');
@@ -71,7 +74,13 @@ function draw (parent, node) {
   circle.setAttribute('cy', (-y + 100) * 3);
   circle.setAttribute('r', r);
   circle.setAttribute('fill', fillStyle);
-  circle.setAttribute('title', label);
+  if (label) {
+    const title = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+    txtnode = document.createTextNode(label);
+    title.appendChild(txtnode);
+    circle.appendChild(title);
+    circle.setAttribute('style', 'cursor:pointer');
+  }
   parent.appendChild(circle);
 }
 
