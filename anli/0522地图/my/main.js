@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-05-24 14:59:34
+ * @LastEditTime: 2021-07-21 15:25:58
  * @LastEditors: jinxiaojian
  */
 const mapData = [
@@ -52,6 +52,7 @@ const mapData = [
     }
   }
 ]
+
 const graticule = d3.geoGraticule10()
 const width = 1000
 const velocity = 0.003
