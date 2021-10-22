@@ -1,0 +1,183 @@
+{
+  "name": "root",
+  "children": [
+    {
+      "name": "regsvc",
+      "children": [
+        {
+          "name": "tftpd",
+          "value": 1
+        },
+        {
+          "name": "dns",
+          "value": 1
+        },
+        {
+          "name": "RsSub",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "termsrv",
+      "children": [
+        {
+          "name": "csrss",
+          "value": 1
+        },
+        {
+          "name": "inetinfo",
+          "children": [
+            {
+              "name": "ups",
+              "value": 1
+            },
+            {
+              "name": "locator",
+              "children": [
+                {
+                  "name": "lsass",
+                  "value": 1
+                },
+                {
+                  "name": "RsSub",
+                  "value": 1
+                },
+                {
+                  "name": "inetinfo",
+                  "children": [
+                    {
+                      "name": "services",
+                      "children": [
+                        {
+                          "name": "RsSub",
+                          "children": [
+                            {
+                              "name": "ismserv",
+                              "children": [
+                                {
+                                  "name": "tcpsvcs",
+                                  "value": 1
+                                },
+                                {
+                                  "name": "winlogon",
+                                  "value": 1
+                                },
+                                {
+                                  "name": "inetinfo",
+                                  "value": 1
+                                },
+                                {
+                                  "name": "ismserv",
+                                  "value": 1
+                                },
+                                {
+                                  "name": "locator",
+                                  "value": 1
+                                },
+                                {
+                                  "name": "cisvc",
+                                  "value": 1
+                                }
+                              ]
+                            },
+                            {
+                              "name": "ismserv",
+                              "children": [
+                                {
+                                  "name": "cisvc",
+                                  "value": 1
+                                },
+                                {
+                                  "name": "svchost",
+                                  "value": 1
+                                },
+                                {
+                                  "name": "smss",
+                                  "value": 1
+                                }
+                              ]
+                            },
+                            {
+                              "name": "svchost",
+                              "value": 1
+                            }
+                          ]
+                        },
+                        {
+                          "name": "csrss",
+                          "value": 1
+                        }
+                      ]
+                    },
+                    {
+                      "name": "csrss",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "name": "cisvc",
+                  "value": 1
+                },
+                {
+                  "name": "llssrv",
+                  "value": 1
+                },
+                {
+                  "name": "tlntsvr",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "name": "ups",
+              "value": 1
+            },
+            {
+              "name": "termsrv",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "name": "winlogon",
+          "children": [
+            {
+              "name": "tftpd",
+              "value": 1
+            },
+            {
+              "name": "dns",
+              "value": 1
+            },
+            {
+              "name": "RsSub",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "name": "ntfrs",
+          "value": 1
+        },
+        {
+          "name": "llssrv",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "llssrv",
+      "value": 1
+    },
+    {
+      "name": "termsrv",
+      "value": 1
+    },
+    {
+      "name": "ntfrs",
+      "value": 1
+    }
+  ]
+}

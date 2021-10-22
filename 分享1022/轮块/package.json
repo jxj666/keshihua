@@ -1,0 +1,21 @@
+{
+  "name": "7f4fb242ce9926c0",
+  "main": "7f4fb242ce9926c0@354.js",
+  "version": "354.0.0",
+  "homepage": "https://observablehq.com/d/7f4fb242ce9926c0",
+  "author": {
+    "name": "有熊肖健",
+    "url": "https://observablehq.com/@jxj666"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
+  }
+}
