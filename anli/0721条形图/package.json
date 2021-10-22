@@ -1,8 +1,8 @@
 {
-  "name": "1b17db183afaf902",
-  "main": "1b17db183afaf902@370.js",
-  "version": "370.0.0",
-  "homepage": "https://observablehq.com/d/1b17db183afaf902",
+  "name": "f11de852a72b5b68",
+  "main": "f11de852a72b5b68@3059.js",
+  "version": "3059.0.0",
+  "homepage": "https://observablehq.com/d/f11de852a72b5b68",
   "author": {
     "name": "有熊肖健",
     "url": "https://observablehq.com/@jxj322991"
@@ -11,14 +11,8 @@
   "peerDependencies": {
     "@observablehq/runtime": "4"
   },
-  "devDependencies": {
-    "lite-server": "^2.6.1"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "lite-server"
-  },
-  "dependencies": {
-    "topojson": "^3.0.2"
   }
 }

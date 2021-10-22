@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-07-12 23:51:09
+ * @LastEditTime: 2021-07-13 11:06:10
  * @LastEditors: jinxiaojian
  */
 
@@ -56,21 +56,31 @@ const warnData = [
 
 function getPoint (point) {
   let xy = point.geometry.coordinates
-  return { x: xy[0]-xy[0]%2, y: xy[1]-xy[1]%2, warn:true }
+  function near (num) {
+    return num % 2 > 1 ? num + (2 - num % 2) : num - num % 2
+  }
+  return { x: near(xy[0]), y: near(xy[1]), warn: true, label: point.label }
 }
 
 const svgroot = document.querySelector('#mySvg');
 function draw (parent, node) {
-  const { x, y, sea, warn } = node;
+  const { x, y, sea, warn, label } = node;
   if (x === 180 || x === -180 || y === 90 || y === -90) return
-  const r = 1.5
+  const r = 2
   let fillStyle = sea ? 'white' : 'gray'
-  if(warn) fillStyle='red'
+  if (warn) fillStyle = 'red'
   const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-  circle.setAttribute('cx', (x + 200)*2);
-  circle.setAttribute('cy', (-y + 100)*2);
+  circle.setAttribute('cx', (x + 200) * 3);
+  circle.setAttribute('cy', (-y + 100) * 3);
   circle.setAttribute('r', r);
   circle.setAttribute('fill', fillStyle);
+  if (label) {
+    const title = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+    txtnode = document.createTextNode(label);
+    title.appendChild(txtnode);
+    circle.appendChild(title);
+    circle.setAttribute('style', 'cursor:pointer');
+  }
   parent.appendChild(circle);
 }
 
@@ -78,8 +88,8 @@ map.forEach(x => {
   draw(svgroot, x)
 })
 
-let warnMap=[]
-warnData.forEach(x=>{
+let warnMap = []
+warnData.forEach(x => {
   warnMap.push(getPoint(x))
 })
 warnMap.forEach(x => {
