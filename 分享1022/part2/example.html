@@ -17,14 +17,13 @@
     var dataset = [5, 10, 13, 19, 21, 25, 11, 25, 22, 18, 7];
 
     var scale = d3.scaleLinear()
-    .domain([50, 0])
-    .range([0, 500]);
-
-    const axis =  d3.axisRight(scale)
+      .domain([50, 0])
+      .range([0, 500]);
+    const axis = d3.axisRight(scale)
       .ticks(5)
-      .tickSizeInner(10)
+      .tickSizeInner(1000)
 
-    var svg = d3.select("body").append("svg").attr("width", w).attr("height", h)
+    var svg = d3.select("body").append("svg").attr("width", 1100).attr("height", h)
       .append("g")
       .call(axis)
     function colorPicker(v) {
