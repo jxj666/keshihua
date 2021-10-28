@@ -28,9 +28,9 @@
       .call(axis)
     function colorPicker(v) {
       if (v <= 20) {
-        return "#666666";
+        return "rgba(255,0,0,0.6)";
       } else if (v > 20) {
-        return "#FF0033";
+        return "rgba(0,255,0,0.6)";
       }
     }
     svg.selectAll("rect")
