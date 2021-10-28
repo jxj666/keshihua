@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-10-28 14:32:06
+ * @LastEditTime: 2021-10-28 14:36:22
  * @LastEditors: jinxiaojian
  */
 
@@ -119,7 +119,7 @@ const partition = data => {
       // 设置或获取元素绑定的数据集(不进行数据与元素个数的对比)
       parent.datum(p.parent || root);
 
-      //数算法
+      //位置转换
       root.each(d => d.target = {
         x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
         x1: Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
