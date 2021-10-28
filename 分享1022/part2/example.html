@@ -1,3 +1,7 @@
+<!--
+ * @LastEditTime: 2021-10-28 18:36:14
+ * @LastEditors: jinxiaojian
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,6 +51,26 @@
       .attr('width', w / barData.length - padding)
       .attr('height', d => d * h / 50)
       .attr('fill', d => d < 30 ? "rgba(255,0,0,0.6)" : "rgba(0,255,0,0.6)")
+    // let j=10
+    // setInterval(() => {
+    //   let newDataBar = []
+    //   let i = 0
+    //   if(j<3) return
+    //   while (i < j) {
+    //     newDataBar.push(Math.random() * 50)
+    //     i++
+    //   }
+    //   j--
+    //   console.log(newDataBar)
+    //   svg.selectAll("rect")
+    //     .data(newDataBar)
+    //     .attr('x', (d, i) => i * (w / newDataBar.length) + padding)
+    //     .attr('y', d => h - (d * h / 50))
+    //     .attr('width', w / newDataBar.length - padding)
+    //     .attr('height', d => d * h / 50)
+    //     .attr('fill', d => d < 30 ? "rgba(255,0,0,0.6)" : "rgba(0,255,0,0.6)")
+    //     .exit().remove()
+    // }, 1000)
   </script>
 </body>
 
