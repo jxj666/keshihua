@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-10-28 12:49:56
+ * @LastEditTime: 2021-10-28 14:32:06
  * @LastEditors: jinxiaojian
  */
 
@@ -9,19 +9,26 @@ const root = document.querySelector('#svg');
 
 const width = 1000
 const radius = width / 6
+const showIndex = 3
 
-//使用默认的设置创建一个新的 arc 生成器
-const arc = d3.arc()
-  .startAngle(d => d.x0)
-  .endAngle(d => d.x1)
-  // 如果指定了 angle 则将间隙角度设置为指定的函数或数值，并返回当前 arc 生成器。
-  .padAngle(d => Math.min((d.x1 - d.x0) / 2, 0.005))
-  // 如果指定了 radius 则将间隔半径设置为指定的函数或数值并返回 arc 生成器。
-  .padRadius(radius * 1.5)
-  // 如果指定了 radius 则将内半径设置为指定的函数或数值并返回当前 arc 生成器。
-  .innerRadius(d => d.y0 * radius)
-  // 如果指定了 radius 则将外半径设置为指定的函数或数值并返回当前 arc 生成器。
-  .outerRadius(d => Math.max(d.y0 * radius, d.y1 * radius - 1))
+//查看卷曲前的效果
+// const arc = d => {
+//   let path = d3.path()
+//   path.rect(d.x0 * 100, d.y0 * 100, (d.x1-d.x0 )* 100, (d.y1-d.y0) * 100)
+//   return path.toString()
+// }
+
+const arc=d3.arc()
+.startAngle(d => d.x0)
+.endAngle(d => d.x1)
+// 如果指定了 angle 则将间隙角度设置为指定的函数或数值，并返回当前 arc 生成器。
+.padAngle(d => Math.min((d.x1 - d.x0) / 2, 0.005))
+// 如果指定了 radius 则将间隔半径设置为指定的函数或数值并返回 arc 生成器。
+.padRadius(radius * 1.5)
+// 如果指定了 radius 则将内半径设置为指定的函数或数值并返回当前 arc 生成器。
+.innerRadius(d => d.y0 * radius)
+// 如果指定了 radius 则将外半径设置为指定的函数或数值并返回当前 arc 生成器。
+.outerRadius(d => Math.max(d.y0 * radius, d.y1 * radius - 1))
 
 
 const format = d3.format(",d")
@@ -32,7 +39,7 @@ const partition = data => {
     .sum(d => d.value)
     // 排序
     .sort((a, b) => b.value - a.value);
-
+  console.log('root1', deepCopy(root))
 
   //使用默认的设置创建一个分区图布局。
   return d3.partition()
@@ -41,7 +48,7 @@ const partition = data => {
     (root);
 }
 
-(async function () {
+!async function () {
   const data = await (await fetch('./data.json')).json()
   // 使用 何种 颜色方案创建分类颜色比例尺
   // quantize scale(量化比例尺) 可以将连续数据四舍五入到一组固定的离散值中，可以用来生成离散数据。
@@ -52,7 +59,7 @@ const partition = data => {
 
     //制造一个分区数据集
     const root = partition(data);
-    console.log('root', root)
+    console.log('root2', deepCopy(root))
     //存数据
     root.each(d => {
       d.current = d
@@ -64,7 +71,7 @@ const partition = data => {
       .style("font", "10px 雅黑");
 
     const g = svg.append("g")
-      .attr("transform", `translate(${width / 2},${width / 2})`);
+    .attr("transform", `translate(${width / 2},${width / 2})`);
 
     const path = g.append("g")
       .selectAll("path")
@@ -112,6 +119,7 @@ const partition = data => {
       // 设置或获取元素绑定的数据集(不进行数据与元素个数的对比)
       parent.datum(p.parent || root);
 
+      //数算法
       root.each(d => d.target = {
         x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
         x1: Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
@@ -122,7 +130,7 @@ const partition = data => {
       const t = g.transition().duration(750);
 
       path.transition(t)
-      // 对于每个选定的元素，在过渡过程中执行指定的函数.
+        // 对于每个选定的元素，在过渡过程中执行指定的函数.
         .tween("data", d => {
           // 控制缩放变换的插值方式.
           const i = d3.interpolate(d.current, d.target);
@@ -143,11 +151,11 @@ const partition = data => {
     }
 
     function arcVisible (d) {
-      return d.y1 <= 3 && d.y0 >= 1 && d.x1 > d.x0;
+      return d.y1 <= showIndex && d.y0 >= 1 && d.x1 > d.x0;
     }
 
     function labelVisible (d) {
-      return d.y1 <= 3 && d.y0 >= 1 && (d.y1 - d.y0) * (d.x1 - d.x0) > 0.03;
+      return d.y1 <= showIndex && d.y0 >= 1 && (d.y1 - d.y0) * (d.x1 - d.x0) > 0.03;
     }
 
     function labelTransform (d) {
@@ -158,4 +166,4 @@ const partition = data => {
     return svg.node();
   }
   root.appendChild(getChart(partition, data, d3, width, color, arc, format, radius))
-}())
+}()
