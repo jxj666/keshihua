@@ -11,37 +11,34 @@
 
 <body>
   <script>
-    var w = 1000;
-    var h = 500;
-    var padding = 2;
-    var dataset = [5, 10, 13, 19, 21, 25, 11, 25, 22, 18, 7];
-
-    var scale = d3.scaleLinear()
+    let w = 1000;
+    let h = 500;
+    let padding = 20;
+    let barData=[]
+    let i=0
+    while(i<10){
+      barData.push(Math.random()*50)
+      i++
+    }
+    let scale = d3.scaleLinear()
       .domain([50, 0])
       .range([0, 500]);
     const axis = d3.axisRight(scale)
       .ticks(5)
       .tickSizeInner(1000)
-      
-    var svg = d3.select("body").append("svg").attr("width", 1100).attr("height", h)
+
+    let svg = d3.select("body").append("svg").attr("width", w + 50).attr("height", h)
       .append("g")
       .call(axis)
-    function colorPicker(v) {
-      if (v <= 20) {
-        return "rgba(255,0,0,0.6)";
-      } else if (v > 20) {
-        return "rgba(0,255,0,0.6)";
-      }
-    }
     svg.selectAll("rect")
-      .data(dataset)
+      .data(barData)
       .enter()
       .append("rect")
-      .attr('x', (d, i) => i * (w / dataset.length))
+      .attr('x', (d, i) => i * (w / barData.length)+padding/2)
       .attr('y', d => h - (d * 10))
-      .attr('width', w / dataset.length - padding)
+      .attr('width', w / barData.length - padding)
       .attr('height', d => d * 10)
-      .attr('fill', d => colorPicker(d))
+      .attr('fill', d => d < 30 ? "rgba(255,0,0,0.6)" : "rgba(0,255,0,0.6)")
   </script>
 </body>
 
