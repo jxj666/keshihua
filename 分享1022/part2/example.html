@@ -22,7 +22,7 @@
     const axis = d3.axisRight(scale)
       .ticks(5)
       .tickSizeInner(1000)
-
+      
     var svg = d3.select("body").append("svg").attr("width", 1100).attr("height", h)
       .append("g")
       .call(axis)
