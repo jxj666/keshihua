@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-11-15 01:54:40
+ * @LastEditTime: 2021-11-15 02:09:46
  * @LastEditors: jinxiaojian
  */
 var svg = d3.select("svg"),
@@ -41,7 +41,9 @@ d3.json("./map.json", function (error, world) {
     .enter()
     .append("path")
     .attr("class", 'country')
-    .style('fill', 'gray')
+    .style('fill', (country) => {
+      return country.id === "CHN" ? 'red' : '#ccc'
+    })
     .attr("d", path)
 
 });
