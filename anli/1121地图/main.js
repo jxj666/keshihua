@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-11-15 02:12:56
+ * @LastEditTime: 2021-11-15 02:29:52
  * @LastEditors: jinxiaojian
  */
 var svg = d3.select("svg"),
@@ -13,7 +13,6 @@ var projection = d3.geoMercator()
 var path = d3.geoPath()
   .projection(projection);
 
-var graticule = d3.geoGraticule();
 
 
 
