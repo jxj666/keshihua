@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-11-15 02:09:46
+ * @LastEditTime: 2021-11-15 02:12:56
  * @LastEditors: jinxiaojian
  */
 var svg = d3.select("svg"),
@@ -15,23 +15,7 @@ var path = d3.geoPath()
 
 var graticule = d3.geoGraticule();
 
-svg.append("defs").append("path")
-  .datum({ type: "Sphere" })
-  .attr("id", "sphere")
-  .attr("d", path);
 
-svg.append("use")
-  .attr("class", "stroke")
-  .attr("xlink:href", "#sphere");
-
-svg.append("use")
-  .attr("class", "fill")
-  .attr("xlink:href", "#sphere");
-
-svg.append("path")
-  .datum(graticule)
-  .attr("class", "graticule")
-  .attr("d", path);
 
 d3.json("./map.json", function (error, world) {
   if (error) throw error;
