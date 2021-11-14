@@ -1,0 +1,77 @@
+<!--
+ * @LastEditTime: 2021-10-28 18:36:14
+ * @LastEditors: jinxiaojian
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简单示例</title>
+  <style>
+    svg {
+      border: 1px solid gray;
+    }
+  </style>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <script src="https://cdn.bootcdn.net/ajax/libs/d3/7.0.0/d3.min.js"></script>
+
+  <script>
+    let w = 1000;
+    let h = 500;
+    let padding = 30;
+    let barData = []
+    let i = 0
+    while (i < 10) {
+      barData.push(Math.random() * 50)
+      i++
+    }
+    let scale = d3.scaleLinear()
+      .domain([50, 0])
+      .range([0, 500]);
+    const axis = d3.axisRight(scale)
+      .ticks(5)
+      .tickSizeInner(5)
+
+    let svg = d3.select("body").append("svg").attr("width", w + padding).attr("height", h)
+    svg.append("g").call(axis)
+    svg.selectAll("rect")
+      .data(barData)
+      .enter()
+      .append("rect")
+      .attr('x', (d, i) => i * (w / barData.length) + padding)
+      .attr('y', d => h - (d * h / 50))
+      .attr('width', w / barData.length - padding)
+      .attr('height', d => d * h / 50)
+      .attr('fill', d => d < 30 ? "rgba(255,0,0,0.6)" : "rgba(0,255,0,0.6)")
+    // let j=10
+    // setInterval(() => {
+    //   let newDataBar = []
+    //   let i = 0
+    //   if(j<3) return
+    //   while (i < j) {
+    //     newDataBar.push(Math.random() * 50)
+    //     i++
+    //   }
+    //   j--
+    //   console.log(newDataBar)
+    //   svg.selectAll("rect")
+    //     .data(newDataBar)
+    //     .attr('x', (d, i) => i * (w / newDataBar.length) + padding)
+    //     .attr('y', d => h - (d * h / 50))
+    //     .attr('width', w / newDataBar.length - padding)
+    //     .attr('height', d => d * h / 50)
+    //     .attr('fill', d => d < 30 ? "rgba(255,0,0,0.6)" : "rgba(0,255,0,0.6)")
+    //     .exit().remove()
+    // }, 1000)
+  </script>
+</body>
+
+</html>

@@ -1,14 +1,16 @@
 /*
- * @LastEditTime: 2021-04-30 00:14:06
+ * @LastEditTime: 2021-10-28 14:59:53
  * @LastEditors: jinxiaojian
  */
 
 const canvas = document.querySelector('canvas');
-
 const context = canvas.getContext('2d');
-
-const rectSize = [100, 100];
+const nums = [55, 33, 88];
 context.fillStyle = 'red';
-context.beginPath();
-context.rect(0.5 * (canvas.width - rectSize[0]), 0.5 * (canvas.height - rectSize[1]), ...rectSize);
-context.fill();
+nums.forEach(
+  (x, i) => {
+    context.beginPath();
+    context.rect(i * 30 + 10, 0, 20, x);
+    context.fill();
+  }
+)
