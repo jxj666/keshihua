@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-11-15 15:40:41
+ * @LastEditTime: 2021-11-15 15:43:54
  * @LastEditors: jinxiaojian
  */
 let mockData = {
@@ -9,12 +9,11 @@ let mockData = {
 }
 
 var svg = d3.select("svg"),
-  width = +svg.attr("width"),
-  height = +svg.attr("height");
+  width = +svg.attr("width")
 
 var projection = d3.geoMercator()
   .scale((width - 3) / (2 * Math.PI))
-  .translate([width / 2, height / 2]);
+  .translate([width / 2, width / 2]);
 var path = d3.geoPath()
   .projection(projection);
 d3.json("./map.json", function (error, world) {
