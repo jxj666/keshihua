@@ -1,0 +1,1159 @@
+{
+  "AD": {
+    "en": "Andorra",
+    "data": [
+      1.52,
+      42.51
+    ]
+  },
+  "AE": {
+    "en": "UnitedArabEmirates"
+  },
+  "AF": {
+    "en": "Afghanistan",
+    "data": [
+      67.71,
+      33.94
+    ]
+  },
+  "AG": {
+    "en": "AntiguaandBarbuda"
+  },
+  "AI": {
+    "en": "Anguilla",
+    "data": [
+      -63.07,
+      18.22
+    ]
+  },
+  "AL": {
+    "en": "Albania",
+    "data": [
+      20.17,
+      41.15
+    ]
+  },
+  "AM": {
+    "en": "Armenia",
+    "data": [
+      45.04,
+      40.07
+    ]
+  },
+  "AO": {
+    "en": "Angola",
+    "data": [
+      17.87,
+      -11.2
+    ]
+  },
+  "AR": {
+    "en": "Argentina",
+    "data": [
+      -63.62,
+      -38.42
+    ]
+  },
+  "AT": {
+    "en": "Austria",
+    "data": [
+      14.55,
+      47.52
+    ]
+  },
+  "AU": {
+    "en": "Australia",
+    "data": [
+      133.78,
+      -25.27
+    ]
+  },
+  "AZ": {
+    "en": "Azerbaijan",
+    "data": [
+      47.58,
+      40.14
+    ]
+  },
+  "BB": {
+    "en": "Barbados",
+    "data": [
+      -59.54,
+      13.19
+    ]
+  },
+  "BD": {
+    "en": "Bangladesh",
+    "data": [
+      90.36,
+      23.68
+    ]
+  },
+  "BE": {
+    "en": "Belgium",
+    "data": [
+      4.47,
+      50.5
+    ]
+  },
+  "BF": {
+    "en": "Burkina-faso",
+    "data": [
+      -1.56,
+      12.24
+    ]
+  },
+  "BG": {
+    "en": "Bulgaria",
+    "data": [
+      25.49,
+      42.73
+    ]
+  },
+  "BH": {
+    "en": "Bahrain",
+    "data": [
+      50.56,
+      26.07
+    ]
+  },
+  "BI": {
+    "en": "Burundi",
+    "data": [
+      29.92,
+      -3.37
+    ]
+  },
+  "BJ": {
+    "en": "Benin",
+    "data": [
+      2.32,
+      9.31
+    ]
+  },
+  "BL": {
+    "en": "Palestine"
+  },
+  "BM": {
+    "en": "BermudaIs."
+  },
+  "BN": {
+    "en": "Brunei",
+    "data": [
+      114.73,
+      4.54
+    ]
+  },
+  "BO": {
+    "en": "Bolivia",
+    "data": [
+      -63.59,
+      -16.29
+    ]
+  },
+  "BR": {
+    "en": "Brazil",
+    "data": [
+      -51.93,
+      -14.24
+    ]
+  },
+  "BS": {
+    "en": "Bahamas",
+    "data": [
+      -77.4,
+      25.03
+    ]
+  },
+  "BW": {
+    "en": "Botswana",
+    "data": [
+      24.68,
+      -22.33
+    ]
+  },
+  "BY": {
+    "en": "Belarus",
+    "data": [
+      27.95,
+      53.71
+    ]
+  },
+  "BZ": {
+    "en": "Belize",
+    "data": [
+      -88.5,
+      17.19
+    ]
+  },
+  "CA": {
+    "en": "Canada",
+    "data": [
+      -106.35,
+      56.13
+    ]
+  },
+  "CF": {
+    "en": "CentralAfricanRepublic"
+  },
+  "CG": {
+    "en": "Congo",
+    "data": [
+      15.83,
+      -0.23
+    ]
+  },
+  "CH": {
+    "en": "Switzerland",
+    "data": [
+      8.23,
+      46.82
+    ]
+  },
+  "CK": {
+    "en": "CookIs."
+  },
+  "CL": {
+    "en": "Chile",
+    "data": [
+      -71.54,
+      -35.68
+    ]
+  },
+  "CM": {
+    "en": "Cameroon",
+    "data": [
+      12.35,
+      7.37
+    ]
+  },
+  "CN": {
+    "en": "China",
+    "data": [
+      104.2,
+      35.86
+    ]
+  },
+  "CO": {
+    "en": "Colombia",
+    "data": [
+      -74.3,
+      4.57
+    ]
+  },
+  "CR": {
+    "en": "CostaRica"
+  },
+  "CS": {
+    "en": "Czech"
+  },
+  "CU": {
+    "en": "Cuba",
+    "data": [
+      -77.78,
+      21.52
+    ]
+  },
+  "CY": {
+    "en": "Cyprus",
+    "data": [
+      33.43,
+      35.13
+    ]
+  },
+  "CZ": {
+    "en": "CzechRepublic"
+  },
+  "DE": {
+    "en": "Germany",
+    "data": [
+      10.45,
+      51.17
+    ]
+  },
+  "DJ": {
+    "en": "Djibouti",
+    "data": [
+      42.59,
+      11.83
+    ]
+  },
+  "DK": {
+    "en": "Denmark",
+    "data": [
+      9.5,
+      56.26
+    ]
+  },
+  "DO": {
+    "en": "DominicaRep."
+  },
+  "DZ": {
+    "en": "Algeria",
+    "data": [
+      1.66,
+      28.03
+    ]
+  },
+  "EC": {
+    "en": "Ecuador",
+    "data": [
+      -78.18,
+      -1.83
+    ]
+  },
+  "EE": {
+    "en": "Estonia",
+    "data": [
+      25.01,
+      58.6
+    ]
+  },
+  "EG": {
+    "en": "Egypt",
+    "data": [
+      30.8,
+      26.82
+    ]
+  },
+  "ES": {
+    "en": "Spain",
+    "data": [
+      -3.75,
+      40.46
+    ]
+  },
+  "ET": {
+    "en": "Ethiopia",
+    "data": [
+      40.49,
+      9.15
+    ]
+  },
+  "FI": {
+    "en": "Finland",
+    "data": [
+      25.75,
+      61.92
+    ]
+  },
+  "FJ": {
+    "en": "Fiji",
+    "data": [
+      178.07,
+      -17.71
+    ]
+  },
+  "FR": {
+    "en": "France",
+    "data": [
+      2.21,
+      46.23
+    ]
+  },
+  "GA": {
+    "en": "Gabon",
+    "data": [
+      11.61,
+      -0.8
+    ]
+  },
+  "GB": {
+    "en": "UnitedKiongdom",
+    "data": [
+      -3.44,
+      55.38
+    ]
+  },
+  "GD": {
+    "en": "Grenada",
+    "data": [
+      -61.68,
+      12.12
+    ]
+  },
+  "GE": {
+    "en": "Georgia",
+    "data": [
+      -82.9,
+      32.17
+    ]
+  },
+  "GF": {
+    "en": "FrenchGuiana"
+  },
+  "GH": {
+    "en": "Ghana",
+    "data": [
+      -1.02,
+      7.95
+    ]
+  },
+  "GI": {
+    "en": "Gibraltar",
+    "data": [
+      -5.35,
+      36.14
+    ]
+  },
+  "GM": {
+    "en": "Gambia",
+    "data": [
+      -15.31,
+      13.44
+    ]
+  },
+  "GN": {
+    "en": "Guinea",
+    "data": [
+      -9.7,
+      9.95
+    ]
+  },
+  "GR": {
+    "en": "Greece",
+    "data": [
+      21.82,
+      39.07
+    ]
+  },
+  "GT": {
+    "en": "Guatemala",
+    "data": [
+      -90.23,
+      15.78
+    ]
+  },
+  "GU": {
+    "en": "Guam",
+    "data": [
+      144.79,
+      13.44
+    ]
+  },
+  "GY": {
+    "en": "Guyana",
+    "data": [
+      -58.93,
+      4.86
+    ]
+  },
+  "HK": {
+    "en": "Hongkong"
+  },
+  "HN": {
+    "en": "Honduras",
+    "data": [
+      -86.24,
+      15.2
+    ]
+  },
+  "HT": {
+    "en": "Haiti",
+    "data": [
+      -72.29,
+      18.97
+    ]
+  },
+  "HU": {
+    "en": "Hungary",
+    "data": [
+      19.5,
+      47.16
+    ]
+  },
+  "ID": {
+    "en": "Indonesia",
+    "data": [
+      113.92,
+      -0.79
+    ]
+  },
+  "IE": {
+    "en": "Ireland",
+    "data": [
+      -8.24,
+      53.41
+    ]
+  },
+  "IL": {
+    "en": "Israel",
+    "data": [
+      34.85,
+      31.05
+    ]
+  },
+  "IN": {
+    "en": "India",
+    "data": [
+      78.96,
+      20.59
+    ]
+  },
+  "IQ": {
+    "en": "Iraq",
+    "data": [
+      43.68,
+      33.22
+    ]
+  },
+  "IR": {
+    "en": "Iran",
+    "data": [
+      53.69,
+      32.43
+    ]
+  },
+  "IS": {
+    "en": "Iceland",
+    "data": [
+      -19.02,
+      64.96
+    ]
+  },
+  "IT": {
+    "en": "Italy",
+    "data": [
+      12.57,
+      41.87
+    ]
+  },
+  "JM": {
+    "en": "Jamaica",
+    "data": [
+      -77.3,
+      18.11
+    ]
+  },
+  "JO": {
+    "en": "Jordan",
+    "data": [
+      36.24,
+      30.59
+    ]
+  },
+  "JP": {
+    "en": "Japan",
+    "data": [
+      138.25,
+      36.2
+    ]
+  },
+  "KE": {
+    "en": "Kenya",
+    "data": [
+      37.91,
+      -0.02
+    ]
+  },
+  "KG": {
+    "en": "Kyrgyzstan",
+    "data": [
+      74.77,
+      41.2
+    ]
+  },
+  "KH": {
+    "en": "Kampuchea(Cambodia)"
+  },
+  "KP": {
+    "en": "NorthKorea"
+  },
+  "KR": {
+    "en": "Korea",
+    "data": [
+      127.98,
+      37.66
+    ]
+  },
+  "KT": {
+    "en": "RepublicofIvoryCoast"
+  },
+  "KW": {
+    "en": "Kuwait",
+    "data": [
+      47.48,
+      29.31
+    ]
+  },
+  "KZ": {
+    "en": "Kazakstan",
+    "data": [
+      66.92,
+      48.02
+    ]
+  },
+  "LA": {
+    "en": "Laos",
+    "data": [
+      102.5,
+      19.86
+    ]
+  },
+  "LB": {
+    "en": "Lebanon",
+    "data": [
+      35.86,
+      33.85
+    ]
+  },
+  "LC": {
+    "en": "St.Lucia",
+    "data": [
+      -60.98,
+      13.91
+    ]
+  },
+  "LI": {
+    "en": "Liechtenstein",
+    "data": [
+      9.56,
+      47.17
+    ]
+  },
+  "LK": {
+    "en": "SriLanka"
+  },
+  "LR": {
+    "en": "Liberia",
+    "data": [
+      -9.43,
+      6.43
+    ]
+  },
+  "LS": {
+    "en": "Lesotho",
+    "data": [
+      28.23,
+      -29.61
+    ]
+  },
+  "LT": {
+    "en": "Lithuania",
+    "data": [
+      23.88,
+      55.17
+    ]
+  },
+  "LU": {
+    "en": "Luxembourg",
+    "data": [
+      6.13,
+      49.82
+    ]
+  },
+  "LV": {
+    "en": "Latvia",
+    "data": [
+      24.6,
+      56.88
+    ]
+  },
+  "LY": {
+    "en": "Libya",
+    "data": [
+      17.23,
+      26.34
+    ]
+  },
+  "MA": {
+    "en": "Morocco",
+    "data": [
+      -7.09,
+      31.79
+    ]
+  },
+  "MC": {
+    "en": "Monaco",
+    "data": [
+      7.42,
+      43.74
+    ]
+  },
+  "MD": {
+    "en": "Moldova,Republicof"
+  },
+  "MG": {
+    "en": "Madagascar",
+    "data": [
+      46.87,
+      -18.77
+    ]
+  },
+  "ML": {
+    "en": "Mali",
+    "data": [
+      -4,
+      17.57
+    ]
+  },
+  "MM": {
+    "en": "Burma",
+    "data": [
+      95.96,
+      21.92
+    ]
+  },
+  "MN": {
+    "en": "Mongolia",
+    "data": [
+      103.85,
+      46.86
+    ]
+  },
+  "MO": {
+    "en": "Macao",
+    "data": [
+      113.54,
+      22.2
+    ]
+  },
+  "MS": {
+    "en": "MontserratIs"
+  },
+  "MT": {
+    "en": "Malta",
+    "data": [
+      14.38,
+      35.94
+    ]
+  },
+  "MU": {
+    "en": "Mauritius",
+    "data": [
+      57.55,
+      -20.35
+    ]
+  },
+  "MV": {
+    "en": "Maldives",
+    "data": [
+      73.54,
+      1.98
+    ]
+  },
+  "MW": {
+    "en": "Malawi",
+    "data": [
+      34.3,
+      -13.25
+    ]
+  },
+  "MX": {
+    "en": "Mexico",
+    "data": [
+      -102.55,
+      23.63
+    ]
+  },
+  "MY": {
+    "en": "Malaysia",
+    "data": [
+      101.98,
+      4.21
+    ]
+  },
+  "MZ": {
+    "en": "Mozambique",
+    "data": [
+      35.53,
+      -18.67
+    ]
+  },
+  "NA": {
+    "en": "Namibia",
+    "data": [
+      18.49,
+      -22.96
+    ]
+  },
+  "NE": {
+    "en": "Niger",
+    "data": [
+      8.08,
+      17.61
+    ]
+  },
+  "NG": {
+    "en": "Nigeria",
+    "data": [
+      8.68,
+      9.08
+    ]
+  },
+  "NI": {
+    "en": "Nicaragua",
+    "data": [
+      -85.21,
+      12.87
+    ]
+  },
+  "NL": {
+    "en": "Netherlands",
+    "data": [
+      5.29,
+      52.13
+    ]
+  },
+  "NO": {
+    "en": "Norway",
+    "data": [
+      8.47,
+      60.47
+    ]
+  },
+  "NP": {
+    "en": "Nepal",
+    "data": [
+      84.12,
+      28.39
+    ]
+  },
+  "NR": {
+    "en": "Nauru",
+    "data": [
+      166.93,
+      -0.52
+    ]
+  },
+  "NZ": {
+    "en": "NewZealand"
+  },
+  "OM": {
+    "en": "Oman",
+    "data": [
+      55.98,
+      21.47
+    ]
+  },
+  "PA": {
+    "en": "Panama",
+    "data": [
+      -80.78,
+      8.54
+    ]
+  },
+  "PE": {
+    "en": "Peru",
+    "data": [
+      -75.02,
+      -9.19
+    ]
+  },
+  "PF": {
+    "en": "FrenchPolynesia"
+  },
+  "PG": {
+    "en": "PapuaNewCuinea"
+  },
+  "PH": {
+    "en": "Philippines",
+    "data": [
+      121.77,
+      12.88
+    ]
+  },
+  "PK": {
+    "en": "Pakistan",
+    "data": [
+      69.35,
+      30.38
+    ]
+  },
+  "PL": {
+    "en": "Poland",
+    "data": [
+      19.15,
+      51.92
+    ]
+  },
+  "PR": {
+    "en": "PuertoRico"
+  },
+  "PT": {
+    "en": "Portugal",
+    "data": [
+      -8.22,
+      39.4
+    ]
+  },
+  "PY": {
+    "en": "Paraguay",
+    "data": [
+      -58.44,
+      -23.44
+    ]
+  },
+  "QA": {
+    "en": "Qatar",
+    "data": [
+      51.18,
+      25.35
+    ]
+  },
+  "RO": {
+    "en": "Romania",
+    "data": [
+      24.97,
+      45.94
+    ]
+  },
+  "RU": {
+    "en": "Russia",
+    "data": [
+      105.32,
+      61.52
+    ]
+  },
+  "SA": {
+    "en": "SaudiArabia"
+  },
+  "SB": {
+    "en": "SolomonIs"
+  },
+  "SC": {
+    "en": "Seychelles",
+    "data": [
+      55.49,
+      -4.68
+    ]
+  },
+  "SD": {
+    "en": "Sudan",
+    "data": [
+      30.22,
+      12.86
+    ]
+  },
+  "SE": {
+    "en": "Sweden",
+    "data": [
+      18.64,
+      60.13
+    ]
+  },
+  "SG": {
+    "en": "Singapore",
+    "data": [
+      103.82,
+      1.35
+    ]
+  },
+  "SI": {
+    "en": "Slovenia",
+    "data": [
+      15,
+      46.15
+    ]
+  },
+  "SK": {
+    "en": "Slovakia",
+    "data": [
+      19.7,
+      48.67
+    ]
+  },
+  "SL": {
+    "en": "SierraLeone"
+  },
+  "SM": {
+    "en": "SanMarino"
+  },
+  "SN": {
+    "en": "Senegal",
+    "data": [
+      -14.45,
+      14.5
+    ]
+  },
+  "SO": {
+    "en": "Somali",
+    "data": [
+      46.2,
+      5.15
+    ]
+  },
+  "SR": {
+    "en": "Suriname",
+    "data": [
+      -56.03,
+      3.92
+    ]
+  },
+  "ST": {
+    "en": "SaoTomeandPrincipe"
+  },
+  "SV": {
+    "en": "EISalvador"
+  },
+  "SY": {
+    "en": "Syria",
+    "data": [
+      39,
+      34.8
+    ]
+  },
+  "SZ": {
+    "en": "Swaziland",
+    "data": [
+      31.47,
+      -26.52
+    ]
+  },
+  "TD": {
+    "en": "Chad",
+    "data": [
+      18.73,
+      15.45
+    ]
+  },
+  "TG": {
+    "en": "Togo",
+    "data": [
+      0.82,
+      8.62
+    ]
+  },
+  "TH": {
+    "en": "Thailand",
+    "data": [
+      100.99,
+      15.87
+    ]
+  },
+  "TJ": {
+    "en": "Tajikstan",
+    "data": [
+      71.28,
+      38.86
+    ]
+  },
+  "TM": {
+    "en": "Turkmenistan",
+    "data": [
+      59.56,
+      38.97
+    ]
+  },
+  "TN": {
+    "en": "Tunisia",
+    "data": [
+      9.54,
+      33.89
+    ]
+  },
+  "TO": {
+    "en": "Tonga",
+    "data": [
+      -175.2,
+      -21.18
+    ]
+  },
+  "TR": {
+    "en": "Turkey",
+    "data": [
+      35.24,
+      38.96
+    ]
+  },
+  "TT": {
+    "en": "TrinidadandTobago"
+  },
+  "TZ": {
+    "en": "Tanzania",
+    "data": [
+      34.89,
+      -6.37
+    ]
+  },
+  "UA": {
+    "en": "Ukraine",
+    "data": [
+      31.17,
+      48.38
+    ]
+  },
+  "UG": {
+    "en": "Uganda",
+    "data": [
+      32.29,
+      1.37
+    ]
+  },
+  "US": {
+    "en": "UnitedStatesofAmerica",
+    "data": [
+      -95.71,
+      37.09
+    ]
+  },
+  "UY": {
+    "en": "Uruguay",
+    "data": [
+      -55.77,
+      -32.52
+    ]
+  },
+  "UZ": {
+    "en": "Uzbekistan",
+    "data": [
+      64.59,
+      41.38
+    ]
+  },
+  "VC": {
+    "en": "SaintVincent"
+  },
+  "VE": {
+    "en": "Venezuela",
+    "data": [
+      -66.59,
+      6.42
+    ]
+  },
+  "VN": {
+    "en": "Vietnam",
+    "data": [
+      108.28,
+      14.06
+    ]
+  },
+  "YE": {
+    "en": "Yemen",
+    "data": [
+      48.52,
+      15.55
+    ]
+  },
+  "YU": {
+    "en": "Yugoslavia",
+    "data": [
+      121.02,
+      14.48
+    ]
+  },
+  "ZA": {
+    "en": "SouthAfrica"
+  },
+  "ZM": {
+    "en": "Zambia",
+    "data": [
+      27.85,
+      -13.13
+    ]
+  },
+  "ZR": {
+    "en": "Zaire",
+    "data": [
+      21.76,
+      -4.04
+    ]
+  },
+  "ZW": {
+    "en": "Zimbabwe",
+    "data": [
+      29.15,
+      -19.02
+    ]
+  }
+}
