@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-01-04 15:30:29
+ * @LastEditTime: 2022-01-04 17:07:28
  * @LastEditors: jinxiaojian
  */
 let warnData = {
@@ -39,6 +39,7 @@ function mainPic ({
   //地图json,符合法规,无领土缺失
   d3.json("./map.json", function (error, wData) {
     if (error) throw error;
+    // var pick = svg.append('g')
     var groups = svg.append('g');
     var countries = groups.selectAll("path")
       .data(wData.features)
@@ -58,7 +59,7 @@ function mainPic ({
       })
       .style('stroke', 'background:rgb(43, 34, 35)')
       .attr("d", path)
-    set({ countries, path })
+    set({ groups })
   });
 }
 
@@ -88,25 +89,47 @@ function info ({ xy, country, groups, warnData }) {
 }
 
 function set ({
-  countries,
-  path
+  groups,
+  // pick
 }) {
-  return null
-  // var initTran = projection.translate()
-  // var initScale = projection.scale()
-  // console.log(initTran, initScale)
-  // var zoom = d3.zoom().scaleExtent([1, 10]).on("zoom", d => {
-  //   console.log(d3.event.transform, d3.sourceEvent?.deltaY)
-  //   projection.translate([
-  //     // initTran[0],
+  // let transform = {
+  //   x: 0,
+  //   y: 0,
+  //   k: 1
+  // }
+  var zoom = d3.zoom().scaleExtent([1, 10]).on("zoom", d => {
+    // console.log(d3.event.type)
+    let transform = d3.event.transform
+    groups.style('transform', `translate(${transform['x']}px,${transform['y']}px) scale(${transform['k']})`)
+  })
+  svg.call(zoom)
+  // let btn = svg.append('g')
+  // btn.append("circle")
+  //   .attr('cx', width - 20)
+  //   .attr('cy', height - 20)
+  //   .attr('r', 10)
+  //   .attr('fill', '#fff')
+  //   .attr('stroke', '#eee').attr('style', 'cursor:pointer')
+  //   .on("click", d => {
+  //     groups.style('transform', `translate(${transform.x}px,${transform.y}px) scale(${transform.k / 0.9})`)
+  //     transform = {
+  //       ...transform,
+  //       k: transform.k / 0.9
+  //     }
+  //   })
 
-  //     initTran[0] + d3.event.transform['x'] / 2,
-  //     // initTran[1],
+  // btn.append("circle")
+  //   .attr('cx', width - 20)
+  //   .attr('cy', height - 50)
+  //   .attr('r', 10)
+  //   .attr('fill', '#fff')
+  //   .attr('stroke', '#eee').attr('style', 'cursor:pointer')
+  //   .on("click", d => {
+  //     groups.style('transform', `translate(${transform.x}px,${transform.y}px) scale(${transform.k / 1.1})`)
+  //     transform = {
+  //       ...transform,
+  //       k: transform.k / 1.1
+  //     }
+  //   })
 
-  //     initTran[1] + d3.event.transform['y'] / 2
-  //   ])
-  //   projection.scale(initScale * d3.event.transform['k'])
-  //   countries.attr('d', path)
-  // })
-  // svg.append('rect').attr('class', 'overlay').attr('x', 0).attr('y', 0).attr('width', width).attr('height', height).call(zoom)
 }
