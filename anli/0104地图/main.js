@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-01-04 14:21:32
+ * @LastEditTime: 2022-01-04 14:22:56
  * @LastEditors: jinxiaojian
  */
 let warnData = {
@@ -49,7 +49,7 @@ function mainPic ({
         }
         return warnData[country.id] || '#fff'
       })
-      .style('stroke', '#eee')
+      .style('stroke', 'background:rgb(43, 34, 35)')
       .attr("d", path)
   });
 }
