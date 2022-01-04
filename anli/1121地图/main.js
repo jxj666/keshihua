@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-11-15 15:43:54
+ * @LastEditTime: 2022-01-04 11:17:55
  * @LastEditors: jinxiaojian
  */
 let mockData = {
@@ -26,6 +26,7 @@ d3.json("./map.json", function (error, world) {
     .attr("class", 'country')
     .style('fill', (country) => {
       if (mockData[country.id]) {
+        console.log(country)
         info(path.centroid(country), country, groups)
       }
       return mockData[country.id] || '#ccc'
