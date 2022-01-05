@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-01-05 11:50:07
+ * @LastEditTime: 2022-01-05 13:45:12
  * @LastEditors: jinxiaojian
  */
 let warnData = {
@@ -14,17 +14,17 @@ var svg = d3.select("svg"),
   width = svg.attr("width"),
   height = svg.attr("height")
 
-let gTag
-
 svg.attr('style', 'background:rgb(43, 34, 35)')
+//建立信息tip
 var tootip = d3.select('body').append('div').attr('class', 'tooltip').style('opacity', 0.0)
+// 定义投影模式
 var projection = d3.geoMercator()
   .scale((width - 3) / (2 * Math.PI))
   .translate([width / 2, width / 2])
   .rotate([-10, 0])
+//建立地图path
 var path = d3.geoPath()
   .projection(projection);
-
 //各国对应中心json,比计算中心更准确
 d3.json("./map2.json", function (error, cData) {
   if (error) throw error
@@ -50,7 +50,7 @@ function mainPic ({
       .style('fill', (country) => {
         if (warnData[country.id]) {
           if (cData[country.properties.name]) {
-            // 首先如果有记载位置先获取,否则计算中心点
+            // 首先如果有记载中心位置先获取,否则计算中心点
             info({ xy: projection(cData[country.properties.name]), country, groups, warnData: warnData[country.id] })
           } else {
             info({ xy: path.centroid(country), country, groups, warnData: warnData[country.id] })
@@ -64,10 +64,10 @@ function mainPic ({
   });
 }
 
-//添加部件
+//添加信息部件
 function info ({ xy, country, groups, warnData }) {
   let xyData = xy
-  gTag = groups.append("g").attr('class', 'tag')
+  let gTag = groups.append("g").attr('class', 'tag')
   let circle = gTag.append("circle")
     .attr('cx', xyData[0])
     .attr('cy', xyData[1])
@@ -89,6 +89,7 @@ function info ({ xy, country, groups, warnData }) {
     })
 }
 
+//缩放控制
 function set ({
   groups,
   // pick
