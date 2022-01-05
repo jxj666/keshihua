@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-01-04 17:07:28
+ * @LastEditTime: 2022-01-05 11:50:07
  * @LastEditors: jinxiaojian
  */
 let warnData = {
@@ -20,7 +20,8 @@ svg.attr('style', 'background:rgb(43, 34, 35)')
 var tootip = d3.select('body').append('div').attr('class', 'tooltip').style('opacity', 0.0)
 var projection = d3.geoMercator()
   .scale((width - 3) / (2 * Math.PI))
-  .translate([width / 2, width / 2]);
+  .translate([width / 2, width / 2])
+  .rotate([-10, 0])
 var path = d3.geoPath()
   .projection(projection);
 
