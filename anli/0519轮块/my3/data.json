@@ -5,15 +5,23 @@
       "name": "赵杰夫",
       "children": [
         {
-          "name": "tftpd",
+          "name": "功能",
+          "info": "自动刷新",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "劳生穿",
+      "children": [
+        {
+          "name": "样式",
+          "info": "翻页 样式修改",
           "value": 1
         },
         {
-          "name": "dns",
-          "value": 1
-        },
-        {
-          "name": "RsSub",
+          "name": "样式",
+          "info": "杂项 样式修正",
           "value": 1
         }
       ]
@@ -22,35 +30,11 @@
       "name": "杜秋亮",
       "children": [
         {
-          "name": "tftpd",
-          "value": 1
-        },
-        {
-          "name": "dns",
-          "value": 1
-        },
-        {
-          "name": "RsSub",
+          "name": "样式",
+          "info": "单选点击 样式修正",
           "value": 1
         }
       ]
-    },
-    {
-      "name": "劳生川",
-      "children": [
-        {
-          "name": "tftpd",
-          "value": 1
-        },
-        {
-          "name": "dns",
-          "value": 1
-        },
-        {
-          "name": "RsSub",
-          "value": 1
-        }
-      ]
-    },
+    }
   ]
 }

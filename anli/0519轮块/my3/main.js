@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2021-05-21 01:20:40
+ * @LastEditTime: 2022-03-02 17:41:19
  * @LastEditors: jinxiaojian
  */
 const root = document.querySelector('#svg');
@@ -49,10 +49,9 @@ const partition = data => {
 
     path.filter(d => d.children)
       .style("cursor", "pointer")
-      .on("click", clicked);
 
     path.append("title")
-      .text(d => `进程路径: ${d.ancestors().map(d => d.data.name).reverse().join("/")}\n进程占比: ${format(d.value)}`);
+      .text(d => `积分: ${format(d.value)}`);
 
     const label = g.append("g")
       .attr("pointer-events", "none")
@@ -60,52 +59,43 @@ const partition = data => {
       .style("user-select", "none")
       .selectAll("text")
       .data(root.descendants().slice(1))
+
+    label
       .join("text")
-      .attr("font-size",'2em')
-      .attr("dy", "0.35em")
+      .attr("font-size", '2em')
+      .attr("dy", d => !d.data.info ? '0' : "-0.5em")
       .attr("fill-opacity", d => +labelVisible(d.current))
       .attr("transform", d => labelTransform(d.current))
       .text(d => d.data.name);
+
+    label
+      .join("text")
+      .attr("font-size", '1em')
+      .attr("dy", "0.5em")
+      .attr("fill-opacity", d => +labelVisible(d.current))
+      .attr("transform", d => labelTransform(d.current))
+      .text(d => d.data.info);
 
     const parent = g.append("circle")
       .datum(root)
       .attr("r", radius)
       .attr("fill", "none")
       .attr("pointer-events", "all")
-      .on("click", clicked);
 
-    function clicked (event, p) {
-      parent.datum(p.parent || root);
 
-      root.each(d => d.target = {
-        x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
-        x1: Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
-        y0: Math.max(0, d.y0 - p.depth),
-        y1: Math.max(0, d.y1 - p.depth)
-      });
+    g.append("text")
+      .attr("text-anchor", "middle")
+      .style("user-select", "none")
+      .attr("font-size", '2em')
+      .attr("dy", "-1em")
+      .text("微步前端组件库 tbfe-ui");
+    g.append("text")
+      .attr("text-anchor", "middle")
+      .style("user-select", "none")
+      .attr("font-size", '2em')
+      .attr("dy", "1em")
+      .text("2月 维护 积分");
 
-      const t = g.transition().duration(750);
-
-      //转换所有弧上的数据，即使是不可见的弧，  
-      //如果这个转换被中断，进入弧将开始  
-      //从期望的位置的下一个转换。  
-      path.transition(t)
-        .tween("data", d => {
-          const i = d3.interpolate(d.current, d.target);
-          return t => d.current = i(t);
-        })
-        .filter(function (d) {
-          return +this.getAttribute("fill-opacity") || arcVisible(d.target);
-        })
-        .attr("fill-opacity", d => arcVisible(d.target) ? (d.children ? 0.6 : 0.4) : 0)
-        .attrTween("d", d => () => arc(d.current));
-
-      label.filter(function (d) {
-        return +this.getAttribute("fill-opacity") || labelVisible(d.target);
-      }).transition(t)
-        .attr("fill-opacity", d => +labelVisible(d.target))
-        .attrTween("transform", d => () => labelTransform(d.current));
-    }
 
     function arcVisible (d) {
       return d.y1 <= 3 && d.y0 >= 1 && d.x1 > d.x0;
