@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-11-11 15:58:17
+ * @LastEditTime: 2022-11-11 16:45:29
  * @LastEditors: jinxiaojian
  */
 let mockData = {
@@ -10,41 +10,54 @@ let mockData = {
 
 var svg = d3.select("svg"),
   width = +svg.attr("width")
-let groups = svg.append('g');
 var projection = d3.geoMercator()
   .scale((width - 3) / (2 * Math.PI))
   .translate([width / 2, width / 2]);
 var path = d3.geoPath()
   .projection(projection);
-d3.json("./map.json", function (error, world) {
+console.log('path', path)
+d3.json("./wrold.json", function (error, world) {
+  console.log(1, error, world)
   if (error) throw error;
-  // groups.selectAll("path")
-  //   .data(world.features)
-  //   .enter()
-  //   .append("path")
-  //   .attr("class", 'country')
-  //   .style('fill', (country) => {
-  //     if (mockData[country.id]) {
-  //       console.log(country)
-  //       info(path.centroid(country), country, groups)
-  //     }
-  //     return mockData[country.id] || '#eee'
-  //   })
-  //   .style('stroke','blue')
-  //   .attr("d", path)
-});
-d3.json("./china.json", function (error, world) {
-  console.log(error,world)
-  if (error) throw error;
+  let groups = svg.append('g');
   groups.selectAll("path")
     .data(world.features)
     .enter()
     .append("path")
-    .attr("class", 'chinaProvince')
-    .style('fill','white')
-    .style('stroke','yellow')
-    .attr("d", path)
+    .attr("class", 'country')
+    .style('fill', (country) => {
+      if (mockData[country.id]) {
+        info(path.centroid(country), country, groups)
+      }
+      return mockData[country.id] || '#eee'
+    })
+    .style('stroke', (country) => {
+      return  'blue'
+    })
+    .attr("d", (...x) => {
+      console.log(1, x)
+      return path(...x)
+    })
+
+  d3.json("./china.json", function (error, world) {
+    console.log(2, error, world)
+    let groups = svg.append('g');
+    if (error) throw error;
+    groups.selectAll("path")
+      .data(world.features)
+      .enter()
+      .append("path")
+      .attr("class", 'country')
+      .style('fill', 'none')
+      .style('stroke', 'blue')
+      .style('stroke-width','0.5px')
+      .attr("d", (...x) => {
+        console.log(2, x)
+        return path(...x)
+      })
+  });
 });
+
 //添加标签
 function info (xy, country, groups) {
   let xyData = xy
