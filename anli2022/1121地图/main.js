@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-11-11 16:45:29
+ * @LastEditTime: 2022-11-11 18:59:31
  * @LastEditors: jinxiaojian
  */
 let mockData = {
@@ -27,32 +27,34 @@ d3.json("./wrold.json", function (error, world) {
     .attr("class", 'country')
     .style('fill', (country) => {
       if (mockData[country.id]) {
-        info(path.centroid(country), country, groups)
+        // info(path.centroid(country), country, groups)
       }
       return mockData[country.id] || '#eee'
     })
     .style('stroke', (country) => {
-      return  'blue'
+      return country.id==='CHN'? 'blue': 'blue'
     })
     .attr("d", (...x) => {
-      console.log(1, x)
       return path(...x)
     })
 
   d3.json("./china.json", function (error, world) {
     console.log(2, error, world)
     let groups = svg.append('g');
+    groups.style('fill','none')
     if (error) throw error;
     groups.selectAll("path")
       .data(world.features)
       .enter()
       .append("path")
-      .attr("class", 'country')
-      .style('fill', 'none')
+      .attr("class", 'province')
       .style('stroke', 'blue')
-      .style('stroke-width','0.5px')
+      .style('stroke-width',val=>{
+        console.log(val.properties)
+        return val.properties. adcode==='100000_JD'?1 :0.1
+      } )
+
       .attr("d", (...x) => {
-        console.log(2, x)
         return path(...x)
       })
   });
