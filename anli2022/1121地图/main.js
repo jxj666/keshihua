@@ -1,9 +1,9 @@
 /*
- * @LastEditTime: 2022-11-11 18:59:31
+ * @LastEditTime: 2022-11-14 13:33:16
  * @LastEditors: jinxiaojian
  */
 let mockData = {
-  "CHN": '#fff',
+  "CHN": 'black',
   // "USA": 'orange',
   // "IND": 'yellow',
 }
@@ -15,9 +15,7 @@ var projection = d3.geoMercator()
   .translate([width / 2, width / 2]);
 var path = d3.geoPath()
   .projection(projection);
-console.log('path', path)
 d3.json("./wrold.json", function (error, world) {
-  console.log(1, error, world)
   if (error) throw error;
   let groups = svg.append('g');
   groups.selectAll("path")
@@ -29,17 +27,19 @@ d3.json("./wrold.json", function (error, world) {
       if (mockData[country.id]) {
         // info(path.centroid(country), country, groups)
       }
-      return mockData[country.id] || '#eee'
+      return mockData[country.id] || '#ddd'
     })
     .style('stroke', (country) => {
-      return country.id==='CHN'? 'blue': 'blue'
+     return 'black'
     })
+    .style('stroke-width',val=>{
+      return 1
+    } )
     .attr("d", (...x) => {
       return path(...x)
     })
 
-  d3.json("./china.json", function (error, world) {
-    console.log(2, error, world)
+  d3.json("./china2.json", function (error, world) {
     let groups = svg.append('g');
     groups.style('fill','none')
     if (error) throw error;
@@ -48,12 +48,36 @@ d3.json("./wrold.json", function (error, world) {
       .enter()
       .append("path")
       .attr("class", 'province')
-      .style('stroke', 'blue')
+      .attr("stroke",'black')
+      .attr('stroke-linecap', 'round')
+      .attr('stroke-linejoin', 'round')
+      .attr('fill-rule', 'evenodd')
+      .style('fill','#eee')
       .style('stroke-width',val=>{
-        console.log(val.properties)
+        return 1
+      } )
+      
+      .attr("d", (...x) => {
+        return path(...x)
+      })
+  });
+  
+  d3.json("./china.json", function (error, world) {
+    let groups = svg.append('g');
+    groups.style('fill','none')
+    if (error) throw error;
+    groups.selectAll("path")
+      .data(world.features)
+      .enter()
+      .append("path")
+      .attr("class", 'province')
+      .attr("stroke",'black')
+      .attr('stroke-linecap', 'round')
+      .attr('stroke-linejoin', 'round')
+      .style('stroke-width',val=>{
         return val.properties. adcode==='100000_JD'?1 :0.1
       } )
-
+      
       .attr("d", (...x) => {
         return path(...x)
       })
